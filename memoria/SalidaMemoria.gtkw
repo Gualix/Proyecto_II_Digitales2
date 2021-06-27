@@ -1,0 +1,54 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sun Jun 27 23:53:08 2021
+[*]
+[dumpfile] "/home/gualix/git/Proyecto_II_Digitales2/memoria/memoria.vcd"
+[dumpfile_mtime] "Sun Jun 27 23:48:05 2021"
+[dumpfile_size] 112684
+[savefile] "/home/gualix/git/Proyecto_II_Digitales2/memoria/SalidaMemoria.gtkw"
+[timestart] 0
+[size] 1920 1043
+[pos] -39 -39
+*-1.647782 3 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas_memoria.
+[sst_width] 233
+[signals_width] 222
+[sst_expanded] 1
+[sst_vpaned_height] 298
+@28
+bancopruebas_memoria.clk
+@22
+bancopruebas_memoria.FIFO_data_in[9:0]
+@c00022
+bancopruebas_memoria.FIFO_data_out[9:0]
+@28
+(0)bancopruebas_memoria.FIFO_data_out[9:0]
+(1)bancopruebas_memoria.FIFO_data_out[9:0]
+(2)bancopruebas_memoria.FIFO_data_out[9:0]
+(3)bancopruebas_memoria.FIFO_data_out[9:0]
+(4)bancopruebas_memoria.FIFO_data_out[9:0]
+(5)bancopruebas_memoria.FIFO_data_out[9:0]
+(6)bancopruebas_memoria.FIFO_data_out[9:0]
+(7)bancopruebas_memoria.FIFO_data_out[9:0]
+(8)bancopruebas_memoria.FIFO_data_out[9:0]
+(9)bancopruebas_memoria.FIFO_data_out[9:0]
+@1401200
+-group_end
+@22
+bancopruebas_memoria.FIFO_data_out_synth[9:0]
+@28
+bancopruebas_memoria.wr_ptr[2:0]
+bancopruebas_memoria.rd_ptr[2:0]
+@22
+bancopruebas_memoria.u_memoria_synth.\mem[0][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[1][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[2][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[3][9:0]
+@23
+bancopruebas_memoria.u_memoria_synth.\mem[4][9:0]
+@22
+bancopruebas_memoria.u_memoria_synth.\mem[5][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[6][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[7][9:0]
+[pattern_trace] 1
+[pattern_trace] 0

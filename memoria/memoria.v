@@ -4,7 +4,7 @@ module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 				parameter address_width = 8)	// Cantidad de bloques de mem
 				(input [data_width-1:0] FIFO_data_in,
 				input clk, reset, wr_enable, rd_enable,
-				input [address_width-1:0] wr_ptr, rd_ptr,
+				input [2:0] wr_ptr, rd_ptr,		//000 -> 1 primer bloque 100 -> 4
 				output reg [data_width-1:0] FIFO_data_out);
 
 	// 10 registros de mem con 8 bits

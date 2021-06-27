@@ -2,7 +2,7 @@
 `include "memoria.v"
 `include "probador_memoria.v"
 `include "memoria_synth.v"
-`include "../lib/cmos_cells.v"
+`include "cmos_cells.v"
 
 module bancopruebas_memoria();
 	parameter address_width = 8;
@@ -10,7 +10,7 @@ module bancopruebas_memoria();
 
 	wire [data_width-1:0] FIFO_data_in;
 	wire [data_width-1:0] FIFO_data_out, FIFO_data_out_synth;
-	wire [address_width-1:0] rd_ptr, wr_ptr;
+	wire [2:0] rd_ptr, wr_ptr;
 
 	probador_memoria#(
 		.data_width   ( 10 ),
@@ -21,24 +21,24 @@ module bancopruebas_memoria();
 		.rd_enable    ( rd_enable    ),
 		.reset        ( reset        ),
 		.FIFO_data_in ( FIFO_data_in [data_width-1:0] ),
-		.wr_ptr       ( wr_ptr [address_width-1:0]      ),
-		.rd_ptr       ( rd_ptr [address_width-1:0]      ),
+		.wr_ptr       ( wr_ptr [2:0]      ),
+		.rd_ptr       ( rd_ptr [2:0]      ),
 		.FIFO_data_out ( FIFO_data_out [data_width-1:0] ),
 		.FIFO_data_out_synth (FIFO_data_out_synth [data_width-1:0])
 	);
 
 
 	memoria#(
-		.data_width   ( 6 ),
-		.address_width ( 2 )
+		.data_width   ( 10 ),
+		.address_width ( 8 )
 	)u_memoria(
 		.FIFO_data_in ( FIFO_data_in [data_width-1:0]),
 		.clk          ( clk          ),
 		.reset        ( reset        ),
 		.wr_enable    ( wr_enable    ),
 		.rd_enable    ( rd_enable    ),
-		.wr_ptr       ( wr_ptr [address_width-1:0]),
-		.rd_ptr       ( rd_ptr [address_width-1:0]),
+		.wr_ptr       ( wr_ptr [2:0]),
+		.rd_ptr       ( rd_ptr [2:0]),
 		.FIFO_data_out ( FIFO_data_out [data_width-1:0])
 	);
 
@@ -48,8 +48,8 @@ module bancopruebas_memoria();
 		.reset        ( reset        ),
 		.wr_enable    ( wr_enable    ),
 		.rd_enable    ( rd_enable    ),
-		.wr_ptr       ( wr_ptr      [address_width-1:0]),
-		.rd_ptr       ( rd_ptr      [address_width-1:0]),
+		.wr_ptr       ( wr_ptr      [2:0]),
+		.rd_ptr       ( rd_ptr      [2:0]),
 		.FIFO_data_out_synth ( FIFO_data_out_synth [data_width-1:0])
 	);
 

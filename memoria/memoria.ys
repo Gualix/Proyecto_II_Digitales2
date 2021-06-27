@@ -4,9 +4,9 @@ proc; opt; memory; opt; fsm; opt;
 
 techmap; opt;
 
-dfflibmap -liberty ../lib/cmos_cells.lib
+dfflibmap -liberty cmos_cells.lib
 
-abc -liberty ../lib/cmos_cells.lib
+abc -liberty cmos_cells.lib
 
 clean
 
