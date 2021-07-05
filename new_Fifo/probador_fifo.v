@@ -4,7 +4,7 @@ module probador_fifo#(parameter data_width = 10,
 						output reg [data_width-1:0] FIFO_data_in,
 						output reg pop, push,
 
-						input reg [2:0] wr_ptr, rd_ptr,
+						input [2:0] wr_ptr, rd_ptr,
 						input [data_width-1:0] FIFO_data_out,
 						input [data_width-1:0] FIFO_data_out_synth);
 
@@ -47,7 +47,7 @@ module probador_fifo#(parameter data_width = 10,
 	@(posedge clk);
     wr_enable <= 0;
     rd_enable <= 1;
-
+/*
 	@(posedge clk);
 	rd_ptr <= 3'b001;
 
