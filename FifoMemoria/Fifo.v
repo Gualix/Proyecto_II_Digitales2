@@ -12,7 +12,7 @@ module Fifo #(  parameter data_width = 10,
             input [2:0] wr_ptr, rd_ptr,	
             output[data_width-1:0] FIFO_data_out);
 
-              parameter size_fifo = address_width; 
+            parameter size_fifo = address_width; 
 
     reg [address_width:0] cnt;
     
