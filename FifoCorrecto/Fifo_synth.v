@@ -2,759 +2,318 @@
 
 (* dynports =  1  *)
 (* cells_not_processed =  1  *)
-(* src = "Fifo_synth.v:2" *)
-module Fifo_synth(clk, reset, wr_enable, rd_enable, data_in, full_fifo, empty_fifo, almost_full_fifo, almost_empty_fifo, error, wr_ptr, rd_ptr, FIFO_data_out_synth);
-  (* src = "Fifo_synth.v:31" *)
-  wire [8:0] _000_;
-  wire _001_;
-  wire _002_;
-  wire _003_;
-  wire _004_;
-  wire _005_;
-  wire _006_;
-  wire _007_;
-  wire _008_;
-  wire _009_;
-  wire _010_;
-  wire _011_;
-  wire _012_;
-  wire _013_;
-  wire _014_;
-  wire _015_;
-  wire _016_;
-  wire _017_;
-  wire _018_;
-  wire _019_;
-  wire _020_;
-  wire _021_;
-  wire _022_;
-  wire _023_;
-  wire _024_;
-  wire _025_;
-  wire _026_;
-  wire _027_;
-  wire _028_;
-  wire _029_;
-  wire _030_;
-  wire _031_;
-  wire _032_;
-  wire _033_;
-  wire _034_;
-  wire _035_;
-  wire _036_;
-  wire _037_;
-  wire _038_;
-  wire _039_;
-  wire _040_;
-  wire _041_;
-  wire _042_;
-  wire _043_;
-  wire _044_;
-  wire _045_;
-  wire _046_;
-  wire _047_;
-  wire _048_;
-  wire _049_;
-  wire _050_;
-  wire _051_;
-  wire _052_;
-  wire _053_;
-  wire _054_;
-  wire _055_;
-  wire _056_;
-  wire _057_;
-  wire _058_;
-  wire _059_;
-  wire _060_;
-  wire _061_;
-  wire _062_;
-  wire _063_;
-  wire _064_;
-  wire _065_;
-  wire _066_;
-  wire _067_;
-  wire _068_;
-  wire _069_;
-  wire _070_;
-  wire _071_;
-  wire _072_;
-  wire _073_;
-  wire _074_;
-  wire _075_;
-  wire _076_;
-  wire _077_;
-  wire _078_;
-  wire _079_;
-  wire _080_;
-  wire _081_;
-  wire _082_;
-  wire _083_;
-  wire _084_;
-  wire _085_;
-  wire _086_;
-  wire _087_;
-  wire _088_;
-  wire _089_;
-  wire _090_;
-  wire _091_;
-  wire _092_;
-  wire _093_;
-  wire _094_;
-  wire _095_;
-  wire _096_;
-  wire _097_;
-  wire _098_;
-  wire _099_;
-  wire _100_;
-  wire _101_;
-  (* src = "Fifo_synth.v:13" *)
-  output [9:0] FIFO_data_out_synth;
-  (* src = "Fifo_synth.v:10" *)
-  output almost_empty_fifo;
-  (* src = "Fifo_synth.v:9" *)
-  output almost_full_fifo;
-  (* src = "Fifo_synth.v:5" *)
-  input clk;
-  (* src = "Fifo_synth.v:18" *)
-  wire [8:0] cnt;
-  (* src = "Fifo_synth.v:6" *)
-  input [9:0] data_in;
-  (* src = "Fifo_synth.v:8" *)
-  output empty_fifo;
+(* src = "Fifo_synth.v:6" *)
+module Fifo_synth(clk, reset, wr_enable_synth, rd_enable_synth, FIFO_data_in, pop, push, full_fifo, empty_fifo, almost_full_fifo, almost_empty_fifo, error, FIFO_data_out_synth);
+  (* src = "Fifo_synth.v:67" *)
+  wire [2:0] _00_;
+  (* src = "Fifo_synth.v:40" *)
+  wire _01_;
+  (* src = "Fifo_synth.v:40" *)
+  wire _02_;
+  wire _03_;
+  wire _04_;
+  wire _05_;
+  wire _06_;
+  wire _07_;
+  wire _08_;
+  wire _09_;
+  wire _10_;
+  wire _11_;
+  wire _12_;
+  wire _13_;
+  wire _14_;
+  wire _15_;
+  wire _16_;
+  wire _17_;
+  wire _18_;
+  wire _19_;
+  wire _20_;
+  wire _21_;
+  wire _22_;
+  wire _23_;
+  wire _24_;
+  wire _25_;
+  wire _26_;
+  wire _27_;
+  wire _28_;
+  wire _29_;
+  wire _30_;
+  wire _31_;
+  wire _32_;
+  wire _33_;
+  wire _34_;
+  wire _35_;
+  wire _36_;
+  wire _37_;
   (* src = "Fifo_synth.v:11" *)
+  input [9:0] FIFO_data_in;
+  (* src = "Fifo_synth.v:21" *)
+  output [9:0] FIFO_data_out_synth;
+  (* src = "Fifo_synth.v:17" *)
+  output almost_empty_fifo;
+  (* src = "Fifo_synth.v:16" *)
+  output almost_full_fifo;
+  (* src = "Fifo_synth.v:9" *)
+  input clk;
+  (* src = "Fifo_synth.v:25" *)
+  wire [2:0] cnt;
+  (* src = "Fifo_synth.v:15" *)
+  output empty_fifo;
+  (* src = "Fifo_synth.v:18" *)
   output error;
-  (* src = "Fifo_synth.v:7" *)
+  (* src = "Fifo_synth.v:14" *)
   output full_fifo;
-  (* src = "Fifo_synth.v:5" *)
-  input rd_enable;
   (* src = "Fifo_synth.v:12" *)
-  input [2:0] rd_ptr;
-  (* src = "Fifo_synth.v:5" *)
+  input pop;
+  (* src = "Fifo_synth.v:12" *)
+  input push;
+  (* src = "Fifo_synth.v:10" *)
+  output rd_enable_synth;
+  (* src = "Fifo_synth.v:9" *)
   input reset;
-  (* src = "Fifo_synth.v:5" *)
-  input wr_enable;
-  (* src = "Fifo_synth.v:12" *)
-  input [2:0] wr_ptr;
-  NOT _102_ (
-    .A(cnt[2]),
-    .Y(_037_)
-  );
-  NOT _103_ (
-    .A(cnt[3]),
-    .Y(_038_)
-  );
-  NOT _104_ (
-    .A(cnt[8]),
-    .Y(_039_)
-  );
-  NOT _105_ (
-    .A(cnt[4]),
-    .Y(_040_)
-  );
-  NOT _106_ (
-    .A(cnt[5]),
-    .Y(_041_)
-  );
-  NOT _107_ (
-    .A(cnt[6]),
-    .Y(_042_)
-  );
-  NOT _108_ (
-    .A(cnt[7]),
-    .Y(_043_)
-  );
-  NOT _109_ (
-    .A(rd_enable),
-    .Y(_044_)
-  );
-  NOT _110_ (
-    .A(wr_enable),
-    .Y(_045_)
-  );
-  NOT _111_ (
-    .A(cnt[0]),
-    .Y(_046_)
-  );
-  NOR _112_ (
-    .A(cnt[2]),
-    .B(cnt[3]),
-    .Y(_047_)
-  );
-  NOT _113_ (
-    .A(_047_),
-    .Y(_048_)
-  );
-  NOR _114_ (
+  (* src = "Fifo_synth.v:10" *)
+  output wr_enable_synth;
+  NOT _38_ (
     .A(cnt[1]),
-    .B(_048_),
-    .Y(_049_)
+    .Y(_03_)
   );
-  NOR _115_ (
+  NOT _39_ (
+    .A(cnt[2]),
+    .Y(_04_)
+  );
+  NOT _40_ (
     .A(cnt[0]),
-    .B(cnt[1]),
-    .Y(_050_)
+    .Y(_05_)
   );
-  NAND _116_ (
-    .A(_037_),
-    .B(_050_),
-    .Y(_051_)
+  NOT _41_ (
+    .A(rd_enable_synth),
+    .Y(_06_)
   );
-  NAND _117_ (
-    .A(_047_),
-    .B(_050_),
-    .Y(_052_)
+  NOT _42_ (
+    .A(wr_enable_synth),
+    .Y(_07_)
   );
-  NOR _118_ (
-    .A(cnt[4]),
-    .B(cnt[5]),
-    .Y(_053_)
+  NOT _43_ (
+    .A(reset),
+    .Y(_08_)
   );
-  NOR _119_ (
-    .A(cnt[6]),
-    .B(cnt[7]),
-    .Y(_054_)
+  NOT _44_ (
+    .A(pop),
+    .Y(_09_)
   );
-  NAND _120_ (
-    .A(_053_),
-    .B(_054_),
-    .Y(_055_)
+  NOT _45_ (
+    .A(push),
+    .Y(_10_)
   );
-  NOR _121_ (
-    .A(cnt[8]),
-    .B(_055_),
-    .Y(_056_)
+  NAND _46_ (
+    .A(_03_),
+    .B(_04_),
+    .Y(_11_)
   );
-  NOT _122_ (
-    .A(_056_),
-    .Y(_057_)
-  );
-  NOR _123_ (
-    .A(cnt[4]),
-    .B(_052_),
-    .Y(_058_)
-  );
-  NOR _124_ (
-    .A(_052_),
-    .B(_057_),
-    .Y(empty_fifo)
-  );
-  NAND _125_ (
-    .A(cnt[0]),
-    .B(_049_),
-    .Y(_059_)
-  );
-  NOR _126_ (
-    .A(_057_),
-    .B(_059_),
+  NOR _47_ (
+    .A(_05_),
+    .B(_11_),
     .Y(almost_empty_fifo)
   );
-  NAND _127_ (
+  NAND _48_ (
+    .A(cnt[1]),
+    .B(cnt[2]),
+    .Y(_12_)
+  );
+  NOR _49_ (
     .A(cnt[0]),
-    .B(cnt[1]),
-    .Y(_060_)
-  );
-  NOT _128_ (
-    .A(_060_),
-    .Y(_061_)
-  );
-  NOR _129_ (
-    .A(_037_),
-    .B(_060_),
-    .Y(_062_)
-  );
-  NAND _130_ (
-    .A(cnt[2]),
-    .B(_061_),
-    .Y(_063_)
-  );
-  NOR _131_ (
-    .A(cnt[3]),
-    .B(_063_),
-    .Y(_064_)
-  );
-  NAND _132_ (
-    .A(_056_),
-    .B(_064_),
-    .Y(_065_)
-  );
-  NOT _133_ (
-    .A(_065_),
+    .B(_12_),
     .Y(almost_full_fifo)
   );
-  NAND _134_ (
-    .A(cnt[3]),
-    .B(_056_),
-    .Y(_066_)
-  );
-  NOR _135_ (
-    .A(_051_),
-    .B(_066_),
-    .Y(full_fifo)
-  );
-  NOR _136_ (
-    .A(rd_enable),
-    .B(_045_),
-    .Y(_067_)
-  );
-  NAND _137_ (
-    .A(_044_),
-    .B(wr_enable),
-    .Y(_068_)
-  );
-  NAND _138_ (
-    .A(rd_enable),
-    .B(_045_),
-    .Y(_069_)
-  );
-  NOT _139_ (
-    .A(_069_),
-    .Y(_070_)
-  );
-  NAND _140_ (
-    .A(_068_),
-    .B(_069_),
-    .Y(_071_)
-  );
-  NOR _141_ (
+  NAND _50_ (
     .A(cnt[0]),
-    .B(_071_),
-    .Y(_072_)
+    .B(_06_),
+    .Y(_13_)
   );
-  NAND _142_ (
+  NOT _51_ (
+    .A(_13_),
+    .Y(_14_)
+  );
+  NOR _52_ (
     .A(cnt[0]),
-    .B(_071_),
-    .Y(_073_)
+    .B(_06_),
+    .Y(_15_)
   );
-  NAND _143_ (
+  NAND _53_ (
+    .A(_05_),
+    .B(rd_enable_synth),
+    .Y(_16_)
+  );
+  NOR _54_ (
+    .A(_14_),
+    .B(_15_),
+    .Y(_17_)
+  );
+  NOR _55_ (
+    .A(wr_enable_synth),
+    .B(_17_),
+    .Y(_18_)
+  );
+  NOR _56_ (
+    .A(_03_),
+    .B(_13_),
+    .Y(_19_)
+  );
+  NAND _57_ (
+    .A(cnt[2]),
+    .B(_19_),
+    .Y(_20_)
+  );
+  NAND _58_ (
+    .A(wr_enable_synth),
+    .B(_17_),
+    .Y(_21_)
+  );
+  NAND _59_ (
+    .A(_20_),
+    .B(_21_),
+    .Y(_22_)
+  );
+  NOR _60_ (
+    .A(_18_),
+    .B(_22_),
+    .Y(_23_)
+  );
+  NOR _61_ (
     .A(reset),
-    .B(_073_),
-    .Y(_074_)
+    .B(_23_),
+    .Y(_00_[0])
   );
-  NOR _144_ (
-    .A(_072_),
-    .B(_074_),
-    .Y(_000_[0])
+  NOR _62_ (
+    .A(wr_enable_synth),
+    .B(_16_),
+    .Y(_24_)
   );
-  NAND _145_ (
-    .A(cnt[0]),
-    .B(_067_),
-    .Y(_075_)
+  NOR _63_ (
+    .A(_07_),
+    .B(_13_),
+    .Y(_25_)
   );
-  NAND _146_ (
-    .A(_046_),
-    .B(_070_),
-    .Y(_076_)
+  NOR _64_ (
+    .A(_24_),
+    .B(_25_),
+    .Y(_26_)
   );
-  NAND _147_ (
-    .A(_075_),
-    .B(_076_),
-    .Y(_077_)
-  );
-  NOR _148_ (
+  NOR _65_ (
     .A(cnt[1]),
-    .B(_077_),
-    .Y(_078_)
+    .B(_26_),
+    .Y(_27_)
   );
-  NAND _149_ (
+  NAND _66_ (
     .A(cnt[1]),
-    .B(_077_),
-    .Y(_079_)
+    .B(_26_),
+    .Y(_28_)
   );
-  NAND _150_ (
+  NAND _67_ (
+    .A(_20_),
+    .B(_28_),
+    .Y(_29_)
+  );
+  NOR _68_ (
+    .A(_27_),
+    .B(_29_),
+    .Y(_30_)
+  );
+  NOR _69_ (
     .A(reset),
-    .B(_079_),
-    .Y(_080_)
+    .B(_30_),
+    .Y(_00_[1])
   );
-  NOR _151_ (
-    .A(_078_),
-    .B(_080_),
-    .Y(_000_[1])
+  NOR _70_ (
+    .A(_03_),
+    .B(wr_enable_synth),
+    .Y(_31_)
   );
-  NOR _152_ (
-    .A(_060_),
-    .B(_068_),
-    .Y(_081_)
+  NOR _71_ (
+    .A(_19_),
+    .B(_24_),
+    .Y(_32_)
   );
-  NOR _153_ (
-    .A(cnt[1]),
-    .B(_076_),
-    .Y(_082_)
+  NOR _72_ (
+    .A(_31_),
+    .B(_32_),
+    .Y(_33_)
   );
-  NOR _154_ (
-    .A(_081_),
-    .B(_082_),
-    .Y(_083_)
+  NOR _73_ (
+    .A(_04_),
+    .B(_19_),
+    .Y(_34_)
   );
-  NOR _155_ (
-    .A(_037_),
-    .B(_083_),
-    .Y(_084_)
+  NAND _74_ (
+    .A(_33_),
+    .B(_34_),
+    .Y(_35_)
   );
-  NAND _156_ (
-    .A(_037_),
-    .B(_083_),
-    .Y(_085_)
+  NOR _75_ (
+    .A(cnt[2]),
+    .B(_33_),
+    .Y(_36_)
   );
-  NAND _157_ (
+  NAND _76_ (
+    .A(_08_),
+    .B(_35_),
+    .Y(_37_)
+  );
+  NOR _77_ (
+    .A(_36_),
+    .B(_37_),
+    .Y(_00_[2])
+  );
+  NOR _78_ (
     .A(reset),
-    .B(_085_),
-    .Y(_086_)
+    .B(_09_),
+    .Y(_01_)
   );
-  NOR _158_ (
-    .A(_084_),
-    .B(_086_),
-    .Y(_000_[2])
-  );
-  NAND _159_ (
-    .A(_062_),
-    .B(_067_),
-    .Y(_087_)
-  );
-  NOR _160_ (
-    .A(_038_),
-    .B(_087_),
-    .Y(_088_)
-  );
-  NOT _161_ (
-    .A(_088_),
-    .Y(_089_)
-  );
-  NAND _162_ (
-    .A(cnt[3]),
-    .B(_069_),
-    .Y(_090_)
-  );
-  NAND _163_ (
-    .A(_087_),
-    .B(_090_),
-    .Y(_091_)
-  );
-  NAND _164_ (
-    .A(_089_),
-    .B(_091_),
-    .Y(_092_)
-  );
-  NOR _165_ (
-    .A(_052_),
-    .B(_069_),
-    .Y(_093_)
-  );
-  NOT _166_ (
-    .A(_093_),
-    .Y(_094_)
-  );
-  NAND _167_ (
-    .A(cnt[3]),
-    .B(_051_),
-    .Y(_095_)
-  );
-  NAND _168_ (
-    .A(_052_),
-    .B(_095_),
-    .Y(_096_)
-  );
-  NAND _169_ (
-    .A(_070_),
-    .B(_096_),
-    .Y(_097_)
-  );
-  NAND _170_ (
-    .A(_092_),
-    .B(_097_),
-    .Y(_098_)
-  );
-  NAND _171_ (
+  NOR _79_ (
     .A(reset),
-    .B(_098_),
-    .Y(_099_)
+    .B(_10_),
+    .Y(_02_)
   );
-  NOT _172_ (
-    .A(_099_),
-    .Y(_000_[3])
-  );
-  NOR _173_ (
-    .A(_088_),
-    .B(_093_),
-    .Y(_100_)
-  );
-  NOR _174_ (
-    .A(_040_),
-    .B(_100_),
-    .Y(_101_)
-  );
-  NAND _175_ (
-    .A(_040_),
-    .B(_100_),
-    .Y(_001_)
-  );
-  NAND _176_ (
-    .A(reset),
-    .B(_001_),
-    .Y(_002_)
-  );
-  NAND _177_ (
-    .A(_040_),
-    .B(_093_),
-    .Y(_003_)
-  );
-  NAND _178_ (
-    .A(cnt[3]),
-    .B(cnt[4]),
-    .Y(_004_)
-  );
-  NOT _179_ (
-    .A(_004_),
-    .Y(_005_)
-  );
-  NAND _180_ (
-    .A(cnt[4]),
-    .B(_088_),
-    .Y(_006_)
-  );
-  NOR _181_ (
-    .A(_101_),
-    .B(_002_),
-    .Y(_000_[4])
-  );
-  NAND _182_ (
-    .A(_003_),
-    .B(_006_),
-    .Y(_007_)
-  );
-  NOR _183_ (
-    .A(_058_),
-    .B(_069_),
-    .Y(_008_)
-  );
-  NOR _184_ (
-    .A(_041_),
-    .B(_008_),
-    .Y(_009_)
-  );
-  NAND _185_ (
-    .A(_007_),
-    .B(_009_),
-    .Y(_010_)
-  );
-  NOR _186_ (
-    .A(cnt[5]),
-    .B(_007_),
-    .Y(_011_)
-  );
-  NAND _187_ (
-    .A(reset),
-    .B(_010_),
-    .Y(_012_)
-  );
-  NOR _188_ (
-    .A(_011_),
-    .B(_012_),
-    .Y(_000_[5])
-  );
-  NAND _189_ (
-    .A(_053_),
-    .B(_093_),
-    .Y(_013_)
-  );
-  NAND _190_ (
-    .A(cnt[5]),
-    .B(_005_),
-    .Y(_014_)
-  );
-  NOR _191_ (
-    .A(_063_),
-    .B(_014_),
-    .Y(_015_)
-  );
-  NOR _192_ (
-    .A(_087_),
-    .B(_014_),
-    .Y(_016_)
-  );
-  NAND _193_ (
-    .A(_067_),
-    .B(_015_),
-    .Y(_017_)
-  );
-  NAND _194_ (
-    .A(_013_),
-    .B(_017_),
-    .Y(_018_)
-  );
-  NOR _195_ (
-    .A(cnt[6]),
-    .B(_018_),
-    .Y(_019_)
-  );
-  NOR _196_ (
-    .A(_068_),
-    .B(_015_),
-    .Y(_020_)
-  );
-  NOR _197_ (
-    .A(_042_),
-    .B(_020_),
-    .Y(_021_)
-  );
-  NAND _198_ (
-    .A(_018_),
-    .B(_021_),
-    .Y(_022_)
-  );
-  NAND _199_ (
-    .A(reset),
-    .B(_022_),
-    .Y(_023_)
-  );
-  NOR _200_ (
-    .A(cnt[6]),
-    .B(_013_),
-    .Y(_024_)
-  );
-  NOR _201_ (
-    .A(_019_),
-    .B(_023_),
-    .Y(_000_[6])
-  );
-  NOR _202_ (
-    .A(_042_),
-    .B(_017_),
-    .Y(_025_)
-  );
-  NAND _203_ (
-    .A(cnt[6]),
-    .B(_016_),
-    .Y(_026_)
-  );
-  NOR _204_ (
-    .A(_024_),
-    .B(_025_),
-    .Y(_027_)
-  );
-  NOR _205_ (
-    .A(_043_),
-    .B(_027_),
-    .Y(_028_)
-  );
-  NAND _206_ (
-    .A(_043_),
-    .B(_027_),
-    .Y(_029_)
-  );
-  NAND _207_ (
-    .A(reset),
-    .B(_029_),
-    .Y(_030_)
-  );
-  NOR _208_ (
-    .A(_055_),
-    .B(_094_),
-    .Y(_031_)
-  );
-  NOR _209_ (
-    .A(_028_),
-    .B(_030_),
-    .Y(_000_[7])
-  );
-  NOR _210_ (
-    .A(_043_),
-    .B(_026_),
-    .Y(_032_)
-  );
-  NOR _211_ (
-    .A(_031_),
-    .B(_032_),
-    .Y(_033_)
-  );
-  NOR _212_ (
-    .A(_039_),
-    .B(_033_),
-    .Y(_034_)
-  );
-  NAND _213_ (
-    .A(_039_),
-    .B(_033_),
-    .Y(_035_)
-  );
-  NAND _214_ (
-    .A(reset),
-    .B(_035_),
-    .Y(_036_)
-  );
-  NOR _215_ (
-    .A(_034_),
-    .B(_036_),
-    .Y(_000_[8])
-  );
-  NAND _216_ (
-    .A(_056_),
-    .B(_095_),
-    .Y(error)
-  );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _217_ (
+  (* src = "Fifo_synth.v:67" *)
+  DFF _80_ (
     .C(clk),
-    .D(_000_[0]),
+    .D(_00_[0]),
     .Q(cnt[0])
   );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _218_ (
+  (* src = "Fifo_synth.v:67" *)
+  DFF _81_ (
     .C(clk),
-    .D(_000_[1]),
+    .D(_00_[1]),
     .Q(cnt[1])
   );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _219_ (
+  (* src = "Fifo_synth.v:67" *)
+  DFF _82_ (
     .C(clk),
-    .D(_000_[2]),
+    .D(_00_[2]),
     .Q(cnt[2])
   );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _220_ (
+  (* src = "Fifo_synth.v:40" *)
+  DFF _83_ (
     .C(clk),
-    .D(_000_[3]),
-    .Q(cnt[3])
+    .D(_02_),
+    .Q(wr_enable_synth)
   );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _221_ (
+  (* src = "Fifo_synth.v:40" *)
+  DFF _84_ (
     .C(clk),
-    .D(_000_[4]),
-    .Q(cnt[4])
-  );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _222_ (
-    .C(clk),
-    .D(_000_[5]),
-    .Q(cnt[5])
-  );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _223_ (
-    .C(clk),
-    .D(_000_[6]),
-    .Q(cnt[6])
-  );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _224_ (
-    .C(clk),
-    .D(_000_[7]),
-    .Q(cnt[7])
-  );
-  (* src = "Fifo_synth.v:31" *)
-  DFF _225_ (
-    .C(clk),
-    .D(_000_[8]),
-    .Q(cnt[8])
+    .D(_01_),
+    .Q(rd_enable_synth)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "Fifo_synth.v:27" *)
+  (* src = "Fifo_synth.v:36" *)
   memoria mem (
-    .FIFO_data_in(data_in),
-    .FIFO_data_out(FIFO_data_out_synth),
     .clk(clk),
-    .rd_enable(rd_enable),
-    .rd_ptr(rd_ptr),
+    .memo_data_in(FIFO_data_in),
+    .memo_data_out(FIFO_data_out_synth),
+    .rdmem_enable(rd_enable_synth),
     .reset(reset),
-    .wr_enable(wr_enable),
-    .wr_ptr(wr_ptr)
+    .wrmem_enable(wr_enable_synth)
   );
+  assign empty_fifo = 1'h0;
+  assign full_fifo = 1'h0;
 endmodule

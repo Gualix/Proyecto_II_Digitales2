@@ -1,13 +1,13 @@
 module probador_fifo#(parameter data_width = 10,
 						parameter address_width = 8)
 						(output reg clk,reset, 
-						input wr_enable, rd_enable, 
+						input wr_enable, rd_enable,wr_enable_synth, rd_enable_synth,
 						output reg [data_width-1:0] FIFO_data_in,
 						output reg pop, push,
 
 						/*input [2:0] wr_ptr, rd_ptr,*/
-						input [data_width-1:0] FIFO_data_out);
-						//input [data_width-1:0] FIFO_data_out_synth);
+						input [data_width-1:0] FIFO_data_out,
+						input [data_width-1:0] FIFO_data_out_synth);
 
 
 	initial begin
@@ -35,7 +35,54 @@ module probador_fifo#(parameter data_width = 10,
 	FIFO_data_in <= FIFO_data_in+1;
 	@(posedge clk);
 	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
+	FIFO_data_in <= FIFO_data_in+1;
+	
 	pop<=1;
+	push <= 0;
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+		@(posedge clk);
+		FIFO_data_in <= FIFO_data_in+1;
+	@(posedge clk);
 	@(posedge clk);
 	@(posedge clk);
 	@(posedge clk);
