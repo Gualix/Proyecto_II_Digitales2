@@ -1,8 +1,9 @@
 `include "Fifo.v"
 `include "probador_fifo.v"
 `include "cmos_cells.v"
-`include "memoria.v"
-//`include "Fifo_synth.v"
+
+
+`include "Fifo_synth.v"
 
 module Banco_Fifo();
 	parameter address_width = 8;
@@ -48,16 +49,16 @@ module Banco_Fifo();
 	);
 
 
-	/*Fifo_synth u_fifosynth(
+	Fifo_synth u_fifosynth(
 		.data_in ( FIFO_data_in [data_width-1:0]),
 		.clk          ( clk          ),
 		.reset        ( reset        ),
 		.wr_enable    ( wr_enable    ),
 		.rd_enable    ( rd_enable    ),
-		.wr_ptr       ( wr_ptr [2:0]),
-		.rd_ptr       ( rd_ptr [2:0]),
+		//.wr_ptr       ( wr_ptr [2:0]),
+		//.rd_ptr       ( rd_ptr [2:0]),
 		.FIFO_data_out_synth ( FIFO_data_out_synth [data_width-1:0])
-	);*/
+	);
  
 
 

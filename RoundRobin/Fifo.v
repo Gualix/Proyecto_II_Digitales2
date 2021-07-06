@@ -11,7 +11,7 @@ module Fifo #(  parameter data_width = 10,
             input   [data_width-1:0] data_in,
             input   pop, push,
 
-            output full_fifo ,
+            output full_fifo,
             output empty_fifo,
             output almost_full_fifo,
             output almost_empty_fifo,
