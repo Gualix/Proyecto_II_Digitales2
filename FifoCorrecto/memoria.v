@@ -2,11 +2,11 @@
 
 module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 				parameter address_width = 8)	// Cantidad de bloques de mem
-				(input [data_width-1:0] FIFO_data_in,
+				(input [data_width-1:0] memo_data_in,
 				input clk, reset, 
-				input wr_enable, rd_enable,
+				input wrmem_enable, rdmem_enable,
 						//000 -> 1 primer bloque 100 -> 4
-				output reg [data_width-1:0] FIFO_data_out);
+				output reg [data_width-1:0] memo_data_out);
 
 	// 10 registros de mem con 8 bits
 	 reg [data_width-1:0] mem [address_width-1:0];	
@@ -22,21 +22,22 @@ module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 			end
 		end
 		else begin
-			if (wr_enable) begin
-				mem[wr_ptr] <= FIFO_data_in;
+			if ( wrmem_enable ) begin
+				mem[wr_ptr] <= memo_data_in;
 				wr_ptr<=wr_ptr+1;
 			end
 		end
 	end
 
 	always@ (posedge clk) begin
-		FIFO_data_out = 0;
+		memo_data_out <= 0;
 		if (reset) begin
-			FIFO_data_out = 0;
+			memo_data_out <= 0;
 			rd_ptr<=0;
 		end
-		else if (rd_enable) begin
-			FIFO_data_out[data_width-1:0] = mem[rd_ptr];
+		else if ( rdmem_enable ) begin
+			memo_data_out[data_width-1:0] <= mem[rd_ptr];
+			 mem[rd_ptr]<=0;
 			rd_ptr<=rd_ptr+1;
 		end
 	end
