@@ -18,7 +18,7 @@ module probador_fifo#(parameter data_width = 10,
 	reset <= 1;
 	FIFO_data_in <= 0;
 	clk<=0;
-	
+	pop<=0;
     @(posedge clk);
 	push <= 1;
 	

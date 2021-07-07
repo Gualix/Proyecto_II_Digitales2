@@ -2,7 +2,7 @@ read_verilog Fifo.v
 
 proc; opt; memory; opt; fsm; opt;
 
-techmap; opt;
+techmap;
 
 dfflibmap -liberty cmos_cells.lib
 
