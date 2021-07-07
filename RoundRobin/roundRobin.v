@@ -141,7 +141,7 @@ always @(posedge clk) begin
         end
 
     end
-    else begin
+    else if(reset == 0)begin
         select <= 2'b00; 
     end
 end
