@@ -17,12 +17,12 @@ GTK=gtkwave
 
 #all: sintetizar compilar visualizar limpiar
 
-all: compilar #visualizar
+all: compilar visualizar
 	
 
 compilar:
 	$(VC) $(BANCO) $(FLAGSVC)
-#	$(VR) $(EJEC)
+	$(VR) $(EJEC)
 visualizar:
 	$(GTK) $(VCD) $(GTKCONFIG) 
 

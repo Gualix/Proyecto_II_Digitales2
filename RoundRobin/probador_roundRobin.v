@@ -14,6 +14,10 @@ module probador_roundRobin(
     output reg  empty_P1,
     output reg  empty_P2,
     output reg  empty_P3,
+    output reg  empty_P4,
+    output reg  empty_P5,
+    output reg  empty_P6,
+    output reg  empty_P7,
 
     // Salidas para el control de los Fifos
             
@@ -44,14 +48,57 @@ module probador_roundRobin(
 	$dumpfile("roundRobin.vcd");
 	$dumpvars;
 
-	clk<=0;
-	reset <= 1;
+	clk <= 0;   
+	reset <= 0;
+
+    in_FIFO_0 <= 10'b0000000000;
+    in_FIFO_1 <= 10'b0000000000;
+    in_FIFO_2 <= 10'b0000000000;
+    in_FIFO_3 <= 10'b0000000000;
+
+
+    empty_P0 <= 0;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;
+    empty_P4 <= 1;
+    empty_P5 <= 1;
+    empty_P6 <= 1;
+    empty_P7 <= 1;
 
     @(posedge clk);
 	reset <= 1;
 
+    in_FIFO_0 <= 10'b0110000000;
+    in_FIFO_1 <= 10'b0001100000;
+    in_FIFO_2 <= 10'b0000011000;
+    in_FIFO_3 <= 10'b0000000110;
+
+    empty_P0 <= 0;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;
+    empty_P4 <= 1;
+    empty_P5 <= 1;
+    empty_P6 <= 1;
+    empty_P7 <= 1;
+
 	@(posedge clk);
 	reset  <= 1;
+
+    in_FIFO_0 <= 10'b1110001100;
+    in_FIFO_1 <= 10'b0001101111;
+    in_FIFO_2 <= 10'b0000011000;
+    in_FIFO_3 <= 10'b1100000110;
+
+    empty_P0 <= 0;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;
+    empty_P4 <= 0;
+    empty_P5 <= 0;
+    empty_P6 <= 0;
+    empty_P7 <= 0;
 
 	@(posedge clk);
 	reset  <= 1;
@@ -76,4 +123,6 @@ module probador_roundRobin(
 	end
 	initial clk <= 1;
 	always #1 clk <= ~clk;
+
+
 endmodule

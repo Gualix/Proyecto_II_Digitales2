@@ -19,6 +19,10 @@ module roundRobin(
     input  empty_P1,
     input  empty_P2,
     input  empty_P3,
+    input  empty_P4,
+    input  empty_P5,
+    input  empty_P6,
+    input  empty_P7,
 
     // Salidas para el control de los Fifos
             
@@ -95,34 +99,50 @@ always @(posedge clk) begin
                 pop_F1 <= 0;
                 pop_F2 <= 0;
                 pop_F3 <= 0;
+                select <= 2'b00; 
             end 
             else if (empty_P1 == 0) begin
                 pop_F0 <= 0;
                 pop_F1 <= 1;
                 pop_F2 <= 0;
                 pop_F3 <= 0;
+                select <= 2'b01; 
             end
             else if (empty_P2 == 0) begin
                 pop_F0 <= 0;
                 pop_F1 <= 0;
                 pop_F2 <= 1;
                 pop_F3 <= 0;
+                select <= 2'b10; 
+
             end
             else if (empty_P3 == 0) begin
                 pop_F0 <= 0;
                 pop_F1 <= 0;
                 pop_F2 <= 0;
                 pop_F3 <= 1;
+                select <= 2'b11; 
             end
-            if (empty_P3 == 0) begin
-                pop_F0 <= 0;
-                pop_F1 <= 0;
-                pop_F2 <= 0;
-                pop_F3 <= 1;
-            end
+ 
 
         end
+        //Cuando recibe datos en los FIFOs de la salida, los saca
+        if (empty_P4 == 0) begin
+            push_F0 <= 0;
+        end
+        if (empty_P5 == 0) begin
+            push_F1 <= 0;
+        end
+        if (empty_P6 == 0) begin
+            push_F2 <= 0;
+        end
+        if (empty_P7 == 0) begin
+            push_F3 <= 0;
+        end
 
+    end
+    else begin
+        select <= 2'b00; 
     end
 end
 
