@@ -11,11 +11,11 @@ module Fifo #(  parameter data_width = 10,
             input   [data_width-1:0] FIFO_data_in,
             input   pop, push,
 
-            output full_fifo ,
-            output empty_fifo,
-            output almost_full_fifo,
-            output almost_empty_fifo,
-            output error,
+            output reg full_fifo ,
+            output reg empty_fifo,
+            output reg almost_full_fifo,
+            output reg almost_empty_fifo,
+            output reg error,
             
             /*output [2:0] wr_ptr, rd_ptr,*/	
             output [data_width-1:0] FIFO_data_out);

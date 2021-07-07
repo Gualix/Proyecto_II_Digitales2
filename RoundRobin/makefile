@@ -1,4 +1,4 @@
-NOMBRE=roundRobin
+NOMBRE=bancoRoundRobin
 BANCO=$(NOMBRE).v
 SYNTH=roundRobin_Synth.v
 VCD=roundRobin.vcd
