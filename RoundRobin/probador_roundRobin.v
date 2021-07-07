@@ -51,7 +51,7 @@ module probador_roundRobin(
 	reset <= 1;
 
 	@(posedge clk);
-	reset  <= 0;
+	reset  <= 1;
 
 	@(posedge clk);
 	reset  <= 1;

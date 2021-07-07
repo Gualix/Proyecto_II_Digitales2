@@ -86,31 +86,43 @@ always @(posedge clk) begin
         out_FIFO_2 <= out2_FIFO;
         out_FIFO_3 <= out3_FIFO;
 
-        //Revisa las entradas para vaciarlos
-        if (empty_P0 == 0) begin
-            pop_F0 <= 1;
-            pop_F1 <= 0;
-            pop_F2 <= 0;
-            pop_F3 <= 0;
-        end 
-        else if (empty_P1 == 0) begin
-            pop_F0 <= 0;
-            pop_F1 <= 1;
-            pop_F2 <= 0;
-            pop_F3 <= 0;
+        // Solamente hace POP si ninguna entrada almost full de esta en 1
+        if (almost_full_P0 != 1 && almost_full_P1 != 1
+            && almost_full_P2 != 1 && almost_full_P3 != 1) begin
+            //Revisa las entradas para vaciarlos
+            if (empty_P0 == 0) begin
+                pop_F0 <= 1;
+                pop_F1 <= 0;
+                pop_F2 <= 0;
+                pop_F3 <= 0;
+            end 
+            else if (empty_P1 == 0) begin
+                pop_F0 <= 0;
+                pop_F1 <= 1;
+                pop_F2 <= 0;
+                pop_F3 <= 0;
+            end
+            else if (empty_P2 == 0) begin
+                pop_F0 <= 0;
+                pop_F1 <= 0;
+                pop_F2 <= 1;
+                pop_F3 <= 0;
+            end
+            else if (empty_P3 == 0) begin
+                pop_F0 <= 0;
+                pop_F1 <= 0;
+                pop_F2 <= 0;
+                pop_F3 <= 1;
+            end
+            if (empty_P3 == 0) begin
+                pop_F0 <= 0;
+                pop_F1 <= 0;
+                pop_F2 <= 0;
+                pop_F3 <= 1;
+            end
+
         end
-        else if (empty_P2 == 0) begin
-            pop_F0 <= 0;
-            pop_F1 <= 0;
-            pop_F2 <= 1;
-            pop_F3 <= 0;
-        end
-        else if (empty_P3 == 0) begin
-            pop_F0 <= 0;
-            pop_F1 <= 0;
-            pop_F2 <= 0;
-            pop_F3 <= 1;
-        end
+
     end
 end
 
