@@ -1,0 +1,16 @@
+
+read_verilog contador.v
+
+hierarchy -check -top contador
+
+proc; opt; fsm; opt; memory; opt
+
+techmap; opt
+
+dfflibmap -liberty cmos_cells.lib
+
+abc -liberty cmos_cells.lib
+
+clean
+
+write_verilog contador_s.v
