@@ -56,7 +56,7 @@ wire [9:0] out2_FIFO;
 wire [9:0] out3_FIFO;
 
 //Problema con el selector, debe guiarse por data
-reg [1:0] select;
+wire [1:0] select;
 
 mux4x1 multiplexor(
         .clk    (clk),
@@ -73,7 +73,6 @@ demux4x1 demultiplexor(
         .clk    (clk),
 		.reset  (reset),
         .select (select),
-
         .out_0   (out0_FIFO),
         .out_1   (out1_FIFO),
         .out_2   (out2_FIFO),
