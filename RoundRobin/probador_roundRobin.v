@@ -49,47 +49,60 @@ module probador_roundRobin(
 	$dumpvars;
 
 	clk <= 0;   
-	reset <= 0;
-
-    in_FIFO_0 <= 10'b0000000000;
-    in_FIFO_1 <= 10'b0000000000;
-    in_FIFO_2 <= 10'b0000000000;
-    in_FIFO_3 <= 10'b0000000000;
-
-
-    empty_P0 <= 0;
-    empty_P1 <= 0;
-    empty_P2 <= 0;
-    empty_P3 <= 0;
-    empty_P4 <= 1;
-    empty_P5 <= 1;
-    empty_P6 <= 1;
-    empty_P7 <= 1;
-
-    @(posedge clk);
 	reset <= 1;
 
-    in_FIFO_0 <= 10'b0110000000;
-    in_FIFO_1 <= 10'b0001100000;
-    in_FIFO_2 <= 10'b0000011000;
-    in_FIFO_3 <= 10'b0000000110;
+    almost_full_P0<=0;
+    almost_full_P1<=0;
+    almost_full_P2<=0;
+    almost_full_P3<=0;
+
 
     empty_P0 <= 0;
     empty_P1 <= 0;
     empty_P2 <= 0;
     empty_P3 <= 0;
-    empty_P4 <= 1;
-    empty_P5 <= 1;
-    empty_P6 <= 1;
-    empty_P7 <= 1;
+
+    @(posedge clk);
+	reset <= 0;
+
+    
+
+    empty_P0 <= 0;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;
+    @(posedge clk);
+    empty_P0 <= 1;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;    
+	@(posedge clk);
+    empty_P0 <= 1;
+    empty_P1 <= 1;
+    empty_P2 <= 0;
+    empty_P3 <= 0; 
 
 	@(posedge clk);
-	reset  <= 1;
+    empty_P0 <= 1;
+    empty_P1 <= 1;
+    empty_P2 <= 1;
+    empty_P3 <= 0;     
+	@(posedge clk);
+    empty_P0 <= 1;
+    empty_P1 <= 1;
+    empty_P2 <= 1;
+    empty_P3 <= 1;     
+    @(posedge clk);
 
-    in_FIFO_0 <= 10'b1110001100;
-    in_FIFO_1 <= 10'b0001101111;
-    in_FIFO_2 <= 10'b0000011000;
-    in_FIFO_3 <= 10'b1100000110;
+    empty_P0 <= 0;
+    empty_P1 <= 0;
+    empty_P2 <= 0;
+    empty_P3 <= 0;
+    @(posedge clk);
+
+	@(posedge clk);
+	reset  <= 0;
+
 
     empty_P0 <= 0;
     empty_P1 <= 0;
@@ -101,11 +114,17 @@ module probador_roundRobin(
     empty_P7 <= 0;
 
 	@(posedge clk);
-	reset  <= 1;
+	reset  <= 0;
 	@(posedge clk);
-
+    almost_full_P0<=1;
+    almost_full_P1<=0;
+    almost_full_P2<=0;
+    almost_full_P3<=0;
 	@(posedge clk);
-
+    almost_full_P0<=0;
+    almost_full_P1<=1;
+    almost_full_P2<=0;
+    almost_full_P3<=0;
 	@(posedge clk);
 
 

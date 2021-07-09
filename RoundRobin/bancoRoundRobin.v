@@ -1,4 +1,4 @@
-`include "roundRobin.v"
+`include "arbitro.v"
 `include "probador_roundRobin.v"
 
 module bancoRoundRobin();
@@ -39,7 +39,7 @@ module bancoRoundRobin();
 
 	wire [9:0] demuxIn;
 
-	roundRobin controlador(
+	arbitro controlador(
 		.clk    (clk),
 		.reset  (reset),
         
