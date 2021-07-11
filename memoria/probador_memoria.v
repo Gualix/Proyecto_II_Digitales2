@@ -1,63 +1,67 @@
 module probador_memoria#(parameter data_width = 10,
 						parameter address_width = 8)
-						(output reg clk, wr_enable, rd_enable, reset,
-						output reg [data_width-1:0] FIFO_data_in,
-						output reg [2:0] wr_ptr, rd_ptr,
-						input [data_width-1:0] FIFO_data_out,
-						input [data_width-1:0] FIFO_data_out_synth);
+						(output reg clk,  wrmem_enable, rdmem_enable, reset,
+						output reg [data_width-1:0] memo_data_in,
+			
+						input [data_width-1:0] memo_data_out,
+						input [data_width-1:0] memo_data_out_synth);
 
 	initial begin
 	$dumpfile("memoria.vcd");
 	$dumpvars;
 
-	{wr_enable, rd_enable, reset} <= 0;
-	{rd_ptr, wr_ptr} <= 0;
-	FIFO_data_in <= 0;
+	{wrmem_enable, reset} <= 1;
+	rdmem_enable <= 0;
+
+	memo_data_in <= 0;
 
 	@(posedge clk);
 	@(posedge clk);
 	@(posedge clk);
 	@(posedge clk);
-	wr_enable <= 1;
-	rd_enable <= 1;
-	reset <= 1'b1;
-	FIFO_data_in <= 10'b0111000101;
-	wr_ptr <= 3'b100;
+	wrmem_enable <= 1;
+	
+	reset <= 1'b0;
+	memo_data_in <= 10'b0111000101;
+	
 	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b1111111111;
-	wr_ptr <= 3'b010;
-	rd_ptr <= 3'b010;
+	memo_data_in <= 10'b1111111111;
+	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b1100001011;
-	wr_ptr <= 3'b110;
+	memo_data_in <= 10'b1100001011;
+	
+	@(posedge clk);
+	memo_data_in <= 10'b1101101100;
+	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b1101101100;
-	wr_ptr <= 3'b111;
+	memo_data_in <= 10'b110100001;
+	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b110100001;
-	wr_ptr <= 3'b110;
+	memo_data_in <= 10'b1110010101;
+
+	rdmem_enable <= 1;
+	@(posedge clk);
+	memo_data_in <= 10'b1110111111;
+	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b1110010101;
-	wr_ptr <= 3'b111;
+	memo_data_in <= 10'b1100000010;
+	
 
 	@(posedge clk);
-	FIFO_data_in <= 10'b1110111111;
-	wr_ptr <= 3'b111;
-
+	memo_data_in <= 10'b1101111001;
+	
 	@(posedge clk);
-	FIFO_data_in <= 10'b1100000010;
-	wr_ptr <= 3'b011;
-
 	@(posedge clk);
-	FIFO_data_in <= 10'b1101111001;
-	wr_ptr <= 3'b100;
-
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
+	@(posedge clk);
 
 	$finish;
 	end
