@@ -96,7 +96,7 @@ module maquina_de_estados(
                     else sig_estado = RESET;
                     
                 end 
-
+//SEÑAL INIT VIENE DEL PROBADOR
             INIT: begin
 
                     if (init) begin
