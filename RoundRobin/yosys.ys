@@ -1,0 +1,11 @@
+read_verilog arbitro.v
+
+proc; opt; fsm; opt; memory; opt
+
+dfflibmap -liberty cmos_cells.lib
+
+abc -liberty cmos_cells.lib
+
+clean
+
+write_verilog arbitro_sint.v

@@ -1,32 +1,18 @@
-NOMBRE=bancoRoundRobin
-BANCO=$(NOMBRE).v
-SYNTH=roundRobin_Synth.v
-VCD=roundRobin.vcd
-VC=iverilog
+all: 
+	yosys yosys.ys
+	sed -i "s/arbitro/arbitro_sint/g" arbitro_sint.v
+	sed -i "s/pop_F0/pop_F0_sint/g" arbitro_sint.v
+	sed -i "s/pop_F1/pop_F1_sint/g" arbitro_sint.v
+	sed -i "s/pop_F2/pop_F2_sint/g" arbitro_sint.v
+	sed -i "s/pop_F3/pop_F3_sint/g" arbitro_sint.v
 
-EJEC=out_roundRobin
-VR=vvp
-FLAGSVC= -o $(EJEC)
+	sed -i "s/push_F0/push_F0_sint/g" arbitro_sint.v
+	sed -i "s/push_F1/push_F1_sint/g" arbitro_sint.v
+	sed -i "s/push_F2/push_F2_sint/g" arbitro_sint.v
+	sed -i "s/push_F3/push_F3_sint/g" arbitro_sint.v
 
-FLAGSLIMP=rm *.vcd $(EJEC) $(SYNTH)
+	emacs -batch bancoRoundRobin.v -f verilog-auto -f save-buffer
 
-YOSYS=yosys
-YOSFILE=yosy.ys
-GTKCONFIG=config.gtkw
-GTK=gtkwave
-
-#all: sintetizar compilar visualizar limpiar
-
-all: compilar visualizar
-	
-
-compilar:
-	$(VC) $(BANCO) $(FLAGSVC)
-	$(VR) $(EJEC)
-visualizar:
-	$(GTK) $(VCD) $(GTKCONFIG) 
-
-limpiar: 
-	$(FLAGSLIMP)
-
-
+	iverilog -o test.vvp bancoRoundRobin.v
+	vvp test.vvp
+	gtkwave roundRobin.vcd

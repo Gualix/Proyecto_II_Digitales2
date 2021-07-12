@@ -29,19 +29,7 @@ module arbitro(
     output reg push_F0,
     output reg push_F1,
     output reg push_F2,
-    output reg push_F3,
-
-    // Datos de salida y entrada de los fifos
-
-    input [9:0] in_FIFO_0,
-    input [9:0] in_FIFO_1,
-    input [9:0] in_FIFO_2,
-    input [9:0] in_FIFO_3,
-
-    output reg [9:0] out_FIFO_0,
-    output reg [9:0] out_FIFO_1,
-    output reg [9:0] out_FIFO_2,
-    output reg [9:0] out_FIFO_3);
+    output reg push_F3);
 
 
 

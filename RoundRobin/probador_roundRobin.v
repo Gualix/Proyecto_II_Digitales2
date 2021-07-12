@@ -33,15 +33,17 @@ module probador_roundRobin(
 
     // Datos de salida y entrada de los fifos
 
-    output reg [9:0] in_FIFO_0,
-    output reg [9:0] in_FIFO_1,
-    output reg [9:0] in_FIFO_2,
-    output reg [9:0] in_FIFO_3,
 
-    input [9:0] out_FIFO_0,
-    input [9:0] out_FIFO_1,
-    input [9:0] out_FIFO_2,
-    input [9:0] out_FIFO_3);
+    input pop_F0_sint,
+    input pop_F1_sint,
+    input pop_F2_sint,
+    input pop_F3_sint,
+
+    input push_F0_sint,
+    input push_F1_sint,
+    input push_F2_sint,
+    input push_F3_sint
+    );
 
 
 	initial begin

@@ -1,5 +1,5 @@
 $date
-	Wed Jul  7 14:18:56 2021
+	Sun Jul 11 18:00:20 2021
 $end
 $version
 	Icarus Verilog
@@ -9,140 +9,212 @@ $timescale
 $end
 $scope module bancoRoundRobin $end
 $var wire 1 ! reset $end
-$var wire 1 " push_F3 $end
-$var wire 1 # push_F2 $end
-$var wire 1 $ push_F1 $end
-$var wire 1 % push_F0 $end
-$var wire 1 & pop_F3 $end
-$var wire 1 ' pop_F2 $end
-$var wire 1 ( pop_F1 $end
-$var wire 1 ) pop_F0 $end
-$var wire 10 * out_FIFO_3 [9:0] $end
-$var wire 10 + out_FIFO_2 [9:0] $end
-$var wire 10 , out_FIFO_1 [9:0] $end
-$var wire 10 - out_FIFO_0 [9:0] $end
-$var wire 10 . in_FIFO_3 [9:0] $end
-$var wire 10 / in_FIFO_2 [9:0] $end
-$var wire 10 0 in_FIFO_1 [9:0] $end
-$var wire 10 1 in_FIFO_0 [9:0] $end
-$var wire 1 2 empty_P3 $end
-$var wire 1 3 empty_P2 $end
-$var wire 1 4 empty_P1 $end
-$var wire 1 5 empty_P0 $end
-$var wire 1 6 clk $end
-$var wire 1 7 almost_full_P3 $end
-$var wire 1 8 almost_full_P2 $end
-$var wire 1 9 almost_full_P1 $end
-$var wire 1 : almost_full_P0 $end
+$var wire 1 " push_F3_sint $end
+$var wire 1 # push_F3 $end
+$var wire 1 $ push_F2_sint $end
+$var wire 1 % push_F2 $end
+$var wire 1 & push_F1_sint $end
+$var wire 1 ' push_F1 $end
+$var wire 1 ( push_F0_sint $end
+$var wire 1 ) push_F0 $end
+$var wire 1 * pop_F3_sint $end
+$var wire 1 + pop_F3 $end
+$var wire 1 , pop_F2_sint $end
+$var wire 1 - pop_F2 $end
+$var wire 1 . pop_F1_sint $end
+$var wire 1 / pop_F1 $end
+$var wire 1 0 pop_F0_sint $end
+$var wire 1 1 pop_F0 $end
+$var wire 1 2 empty_P7 $end
+$var wire 1 3 empty_P6 $end
+$var wire 1 4 empty_P5 $end
+$var wire 1 5 empty_P4 $end
+$var wire 1 6 empty_P3 $end
+$var wire 1 7 empty_P2 $end
+$var wire 1 8 empty_P1 $end
+$var wire 1 9 empty_P0 $end
+$var wire 1 : clk $end
+$var wire 1 ; almost_full_P3 $end
+$var wire 1 < almost_full_P2 $end
+$var wire 1 = almost_full_P1 $end
+$var wire 1 > almost_full_P0 $end
 $scope module controlador $end
-$var wire 1 ; empty_P4 $end
-$var wire 1 < empty_P5 $end
-$var wire 1 = empty_P6 $end
-$var wire 1 > empty_P7 $end
 $var wire 1 ! reset $end
-$var wire 10 ? in_FIFO_3 [9:0] $end
-$var wire 10 @ in_FIFO_2 [9:0] $end
-$var wire 10 A in_FIFO_1 [9:0] $end
-$var wire 10 B in_FIFO_0 [9:0] $end
-$var wire 1 2 empty_P3 $end
-$var wire 1 3 empty_P2 $end
-$var wire 1 4 empty_P1 $end
-$var wire 1 5 empty_P0 $end
-$var wire 1 6 clk $end
-$var wire 1 7 almost_full_P3 $end
-$var wire 1 8 almost_full_P2 $end
-$var wire 1 9 almost_full_P1 $end
-$var wire 1 : almost_full_P0 $end
-$var reg 10 C out_FIFO_0 [9:0] $end
-$var reg 10 D out_FIFO_1 [9:0] $end
-$var reg 10 E out_FIFO_2 [9:0] $end
-$var reg 10 F out_FIFO_3 [9:0] $end
-$var reg 1 ) pop_F0 $end
-$var reg 1 ( pop_F1 $end
-$var reg 1 ' pop_F2 $end
-$var reg 1 & pop_F3 $end
-$var reg 1 % push_F0 $end
-$var reg 1 $ push_F1 $end
-$var reg 1 # push_F2 $end
-$var reg 1 " push_F3 $end
+$var wire 1 2 empty_P7 $end
+$var wire 1 3 empty_P6 $end
+$var wire 1 4 empty_P5 $end
+$var wire 1 5 empty_P4 $end
+$var wire 1 6 empty_P3 $end
+$var wire 1 7 empty_P2 $end
+$var wire 1 8 empty_P1 $end
+$var wire 1 9 empty_P0 $end
+$var wire 1 : clk $end
+$var wire 1 ; almost_full_P3 $end
+$var wire 1 < almost_full_P2 $end
+$var wire 1 = almost_full_P1 $end
+$var wire 1 > almost_full_P0 $end
+$var reg 1 1 pop_F0 $end
+$var reg 1 / pop_F1 $end
+$var reg 1 - pop_F2 $end
+$var reg 1 + pop_F3 $end
+$var reg 1 ) push_F0 $end
+$var reg 1 ' push_F1 $end
+$var reg 1 % push_F2 $end
+$var reg 1 # push_F3 $end
+$upscope $end
+$scope module controlador_sint $end
+$var wire 1 ? _05_ $end
+$var wire 1 @ _06_ $end
+$var wire 1 A _07_ $end
+$var wire 1 B _08_ $end
+$var wire 1 C _09_ $end
+$var wire 1 D _10_ $end
+$var wire 1 E _11_ $end
+$var wire 1 F _12_ $end
+$var wire 1 G _13_ $end
+$var wire 1 H _14_ $end
+$var wire 1 ( push_F0_sint $end
+$var wire 1 & push_F1_sint $end
+$var wire 1 $ push_F2_sint $end
+$var wire 1 ! reset $end
+$var wire 1 2 empty_P7 $end
+$var wire 1 3 empty_P6 $end
+$var wire 1 4 empty_P5 $end
+$var wire 1 5 empty_P4 $end
+$var wire 1 6 empty_P3 $end
+$var wire 1 7 empty_P2 $end
+$var wire 1 8 empty_P1 $end
+$var wire 1 9 empty_P0 $end
+$var wire 1 : clk $end
+$var wire 1 ; almost_full_P3 $end
+$var wire 1 < almost_full_P2 $end
+$var wire 1 = almost_full_P1 $end
+$var wire 1 > almost_full_P0 $end
+$var wire 1 I _35_ $end
+$var wire 1 J _34_ $end
+$var wire 1 K _33_ $end
+$var wire 1 L _32_ $end
+$var wire 1 M _31_ $end
+$var wire 1 N _30_ $end
+$var wire 1 O _29_ $end
+$var wire 1 P _28_ $end
+$var wire 1 Q _27_ $end
+$var wire 1 R _26_ $end
+$var wire 1 S _25_ $end
+$var wire 1 T _24_ $end
+$var wire 1 U _23_ $end
+$var wire 1 V _22_ $end
+$var wire 1 W _21_ $end
+$var wire 1 X _20_ $end
+$var wire 1 Y _19_ $end
+$var wire 1 Z _18_ $end
+$var wire 1 [ _17_ $end
+$var wire 1 \ _16_ $end
+$var wire 1 ] _15_ $end
+$var wire 1 ^ _04_ $end
+$var wire 1 _ _03_ $end
+$var wire 1 ` _02_ $end
+$var wire 1 a _01_ $end
+$var wire 1 b _00_ $end
+$var reg 1 0 pop_F0_sint $end
+$var reg 1 . pop_F1_sint $end
+$var reg 1 , pop_F2_sint $end
+$var reg 1 * pop_F3_sint $end
+$var reg 1 " push_F3_sint $end
 $upscope $end
 $scope module test $end
-$var wire 10 G out_FIFO_0 [9:0] $end
-$var wire 10 H out_FIFO_1 [9:0] $end
-$var wire 10 I out_FIFO_2 [9:0] $end
-$var wire 10 J out_FIFO_3 [9:0] $end
-$var wire 1 ) pop_F0 $end
-$var wire 1 ( pop_F1 $end
-$var wire 1 ' pop_F2 $end
-$var wire 1 & pop_F3 $end
-$var wire 1 % push_F0 $end
-$var wire 1 $ push_F1 $end
-$var wire 1 # push_F2 $end
-$var wire 1 " push_F3 $end
-$var reg 1 : almost_full_P0 $end
-$var reg 1 9 almost_full_P1 $end
-$var reg 1 8 almost_full_P2 $end
-$var reg 1 7 almost_full_P3 $end
-$var reg 1 6 clk $end
-$var reg 1 5 empty_P0 $end
-$var reg 1 4 empty_P1 $end
-$var reg 1 3 empty_P2 $end
-$var reg 1 2 empty_P3 $end
-$var reg 1 K empty_P4 $end
-$var reg 1 L empty_P5 $end
-$var reg 1 M empty_P6 $end
-$var reg 1 N empty_P7 $end
-$var reg 10 O in_FIFO_0 [9:0] $end
-$var reg 10 P in_FIFO_1 [9:0] $end
-$var reg 10 Q in_FIFO_2 [9:0] $end
-$var reg 10 R in_FIFO_3 [9:0] $end
+$var wire 1 1 pop_F0 $end
+$var wire 1 0 pop_F0_sint $end
+$var wire 1 / pop_F1 $end
+$var wire 1 . pop_F1_sint $end
+$var wire 1 - pop_F2 $end
+$var wire 1 , pop_F2_sint $end
+$var wire 1 + pop_F3 $end
+$var wire 1 * pop_F3_sint $end
+$var wire 1 ) push_F0 $end
+$var wire 1 ( push_F0_sint $end
+$var wire 1 ' push_F1 $end
+$var wire 1 & push_F1_sint $end
+$var wire 1 % push_F2 $end
+$var wire 1 $ push_F2_sint $end
+$var wire 1 # push_F3 $end
+$var wire 1 " push_F3_sint $end
+$var reg 1 > almost_full_P0 $end
+$var reg 1 = almost_full_P1 $end
+$var reg 1 < almost_full_P2 $end
+$var reg 1 ; almost_full_P3 $end
+$var reg 1 : clk $end
+$var reg 1 9 empty_P0 $end
+$var reg 1 8 empty_P1 $end
+$var reg 1 7 empty_P2 $end
+$var reg 1 6 empty_P3 $end
+$var reg 1 5 empty_P4 $end
+$var reg 1 4 empty_P5 $end
+$var reg 1 3 empty_P6 $end
+$var reg 1 2 empty_P7 $end
 $var reg 1 ! reset $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
-bx R
-bx Q
-bx P
-bx O
-xN
-xM
-xL
-xK
-bx J
-bx I
-bx H
-bx G
-bx F
-bx E
-bx D
-bx C
-bx B
-bx A
-bx @
-bx ?
-z>
-z=
-z<
-z;
-0:
+1b
+0a
+0`
+0_
+1^
+0]
+0\
+0[
+0Z
+0Y
+1X
+1W
+1V
+1U
+0T
+0S
+0R
+0Q
+0P
+1O
+0N
+0M
+0L
+0K
+0J
+1I
+1H
+1G
+1F
+1E
+1D
+1C
+1B
+1A
+1@
+1?
+0>
+0=
+0<
+0;
+1:
 09
 08
 07
-16
-05
-04
-03
-02
-bx 1
-bx 0
-bx /
-bx .
-bx -
-bx ,
-bx +
-bx *
+06
+x5
+x4
+x3
+x2
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
 0)
 0(
 0'
@@ -154,110 +226,169 @@ bx *
 0!
 $end
 #1
-06
+0:
 #2
-15
-1"
-1#
+0b
+1a
+0W
+1\
+0X
+1]
+19
 1$
-1%
-1)
-16
-#3
-06
-#4
-1(
-0)
-14
-16
-#5
-06
-#6
-13
-1'
-0(
-16
-#7
-06
-#8
 1&
-0'
-12
+1(
+1"
+10
+1#
+1%
+1'
+1)
+11
+1:
+#3
+0:
+#4
+0a
+1`
+0\
+1L
+0]
+1M
+0I
+1N
+1/
+01
+00
+1.
+18
+1:
+#5
+0:
+#6
+0`
+1_
+0L
+1Q
+0M
+1R
+0N
+1S
+0O
+1T
+17
+1,
+0.
+1-
+0/
+1:
+#7
+0:
+#8
+1+
+0-
+0,
+1*
 16
+1:
 #9
-06
+0:
 #10
+0_
+1b
+0Q
+1W
+1O
+0T
+1I
+0S
+0R
+1X
+06
+07
+08
+09
+1:
+#11
+0:
+#12
+0+
+11
+10
+0*
+1:
+#13
+0:
+#14
 02
 03
 04
 05
-16
-#11
-06
-#12
-0&
-1)
-16
-#13
-06
-#14
-0N
-0M
-0L
-0K
-16
-#15
-06
-#16
-16
-#17
-06
-#18
 1:
-16
-#19
-06
-#20
-0"
-0#
-0$
-0%
-19
+#15
 0:
-16
+#16
+1:
+#17
+0:
+#18
+0^
+0V
+0A
+0@
+0?
+0B
+1>
+1:
+#19
+0:
+#20
+0C
+1B
+0#
+0%
+0'
+0)
+0$
+0&
+0(
+0"
+1=
+0>
+1:
 #21
-06
+0:
 #22
-16
+1:
 #23
-06
+0:
 #24
-16
+1:
 #25
-06
+0:
 #26
-16
+1:
 #27
-06
+0:
 #28
-16
+1:
 #29
-06
+0:
 #30
-16
+1:
 #31
-06
+0:
 #32
-16
+1:
 #33
-06
+0:
 #34
-16
+1:
 #35
-06
+0:
 #36
-16
+1:
 #37
-06
+0:
 #38
-16
+1:
