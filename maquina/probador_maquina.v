@@ -1,5 +1,4 @@
 module probador_maquina(
-)(
 
     output reg clk,
     output reg reset,
