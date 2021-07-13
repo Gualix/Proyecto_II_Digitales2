@@ -272,3 +272,34 @@ module probador #(
 
         /*Lea los contadores de palabras y valide un aumento de 
         4 palabras por contador*/
+        
+        @(posedge clk)
+        FIFO_data_in0 <= 'hFF;
+        FIFO_data_in1 <= 'hF0;
+        FIFO_data_in2 <= 'hF0;
+        FIFO_data_in3 <= 'hFF;
+
+        @(posedge clk)
+        FIFO_data_in0 <= 'hFF;
+        FIFO_data_in1 <= 'hF0;
+        FIFO_data_in2 <= 'hF0;
+        FIFO_data_in3 <= 'hFF;
+
+        @(posedge clk)
+        FIFO_data_in0 <= 'hFF;
+        FIFO_data_in1 <= 'hF0;
+        FIFO_data_in2 <= 'hF0;
+        FIFO_data_in3 <= 'hFF;
+
+        @(posedge clk)
+        FIFO_data_in0 <= 'hFF;
+        FIFO_data_in1 <= 'hF0;
+        FIFO_data_in2 <= 'hF0;
+        FIFO_data_in3 <= 'hFF;
+
+      
+      $finish;    
+    end
+initial clk <= 1;
+    always #1 clk <= ~clk; 
+endmodule
