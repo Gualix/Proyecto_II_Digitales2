@@ -78,7 +78,7 @@ module maquina_de_estados(
         FIFO_empties[6] = empty_fifos[6]; 
         FIFO_empties[7] = empty_fifos[7];
 
-        sig_estado = estado_actual;
+      
         
        
        case(estado_actual)
