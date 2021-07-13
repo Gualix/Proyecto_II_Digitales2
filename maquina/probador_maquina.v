@@ -6,8 +6,8 @@ module probador_maquina(
 
     //umbrales
 
-    output reg   [7:0]           bajo,                   //umbral bajo
-    output reg   [7:0]           alto,                   //umbral alto
+    output reg   [2:0]           bajo,                   //umbral bajo
+    output reg   [2:0]           alto,                   //umbral alto
 
     input  [3:0]        estado_actual,         //
     input [3:0]        sig_estado,
@@ -19,11 +19,11 @@ module probador_maquina(
     input              idle_out,
     input              next_idle,
 
-    input   [7:0]           bajo_out,                  
-    input   [7:0]           alto_out,
+    input   [2:0]           bajo_out,                  
+    input   [2:0]           alto_out,
 
-    input   [7:0]           next_bajo,                  
-    input   [7:0]           next_alto         
+    input   [2:0]           next_bajo,                  
+    input   [2:0]           next_alto         
 );
 
 
@@ -33,8 +33,8 @@ module probador_maquina(
     $dumpvars();
     reset <= 1;
     init<=0;
-    bajo<=0000;
-    alto<=0000;
+    bajo<=000;
+    alto<=110;
     empty_fifos=8'hFF;
     
     @(posedge clk);
@@ -46,13 +46,13 @@ module probador_maquina(
     init<=0;
     
     @(posedge clk);
-    bajo<=00111000;
-    alto<=01110000;
+    bajo<=000;
+    alto<=110;
 
     @(posedge clk);
     
-    bajo<=00111110;
-    alto<=01110010;
+    bajo<=001;
+    alto<=111;
     
     @(posedge clk);
    
@@ -73,14 +73,14 @@ module probador_maquina(
 
     @(posedge clk);
     @(posedge clk);
-    bajo<=00111000;
-    alto<=01110000;
+    bajo<=001;
+    alto<=111;
     init<=1;
 
     @(posedge clk);
     @(posedge clk);
-    bajo<=00111000;
-    alto<=01110000;
+    bajo<=000;
+    alto<=110;
 
     @(posedge clk);
     @(posedge clk);

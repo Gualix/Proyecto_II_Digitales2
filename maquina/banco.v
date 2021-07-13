@@ -9,8 +9,8 @@ module banco();
 
     //umbrales
 
-    wire   [7:0]           bajo;                   //umbral bajo
-    wire   [7:0]           alto;                   //umbral alto
+    wire   [2:0]           bajo;                   //umbral bajo
+    wire   [2:0]           alto;                   //umbral alto
 
     wire [3:0]        estado_actual;         //
     wire [3:0]        sig_estado;

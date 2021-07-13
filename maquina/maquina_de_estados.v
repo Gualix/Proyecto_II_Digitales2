@@ -5,8 +5,8 @@ module maquina_de_estados(
 
     //umbrales
 
-    input   [7:0]           bajo,                   //umbral bajo
-    input   [7:0]           alto,                   //umbral alto
+    input   [2:0]           bajo,                   //umbral bajo
+    input   [2:0]           alto,                   //umbral alto
 
     output reg [3:0]        estado_actual,         //
     output reg [3:0]        sig_estado,
@@ -18,8 +18,8 @@ module maquina_de_estados(
     output reg              idle_out,
     output reg              next_idle,
 
-    output reg  [7:0]           bajo_out,                  
-    output reg  [7:0]           alto_out,
+    output reg  [2:0]           bajo_out,                  
+    output reg  [2:0]           alto_out,
 
     output reg   [7:0]           next_bajo,                  
     output reg   [7:0]           next_alto                  
