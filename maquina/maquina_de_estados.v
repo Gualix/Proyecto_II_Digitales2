@@ -18,8 +18,8 @@ module maquina_de_estados(
     output reg              idle_out,
     output reg              next_idle,
 
-    output reg   [7:0]           bajo_out,                  
-    output reg   [7:0]           alto_out,
+    output reg  [7:0]           bajo_out,                  
+    output reg  [7:0]           alto_out,
 
     output reg   [7:0]           next_bajo,                  
     output reg   [7:0]           next_alto                  
@@ -34,7 +34,7 @@ module maquina_de_estados(
     parameter RESET =       4'b0000; //1
     parameter INIT =        4'b0001; //2
     parameter IDLE =        4'b0010; //3
-    parameter ACTIVE =      4'b0100; //4
+    parameter ACTIVE =      4'b0011; //4
 
 /***********************************************************************/
 
@@ -59,10 +59,8 @@ module maquina_de_estados(
         else begin
             
             estado_actual <= sig_estado;
-            active_out <= next_active;
-            idle_out <= next_idle;
-            bajo_out <= next_bajo;
-            alto_out <= next_alto;
+            
+            
             
             
         end
@@ -82,14 +80,11 @@ module maquina_de_estados(
 
         sig_estado = estado_actual;
         
-        next_active = active_out;
-        next_idle = idle_out;
-        next_alto = alto_out;
-        next_bajo = bajo_out;
        
        case(estado_actual)
 
-            RESET:begin
+            RESET:begin idle_out=0;
+                    
 
                     if (reset == 0) sig_estado = INIT;  
                      
@@ -97,14 +92,16 @@ module maquina_de_estados(
                     
                 end 
 //SEÑAL INIT VIENE DEL PROBADOR
-            INIT: begin
+            INIT: begin idle_out=0;
+                    bajo_out=bajo_out;
+                    alto_out=alto_out;
 
-                    if (init) begin
+                    if (!init) begin
                         sig_estado = IDLE;
                         
                     end
-                    else if (!reset) sig_estado = RESET;  
-                    else if (reset && !init)begin
+                    else if (reset) sig_estado = RESET;  
+                    else if (!reset && init)begin
                         next_alto = alto;
                         next_bajo = bajo;
                         sig_estado = INIT; 
@@ -113,29 +110,47 @@ module maquina_de_estados(
                 end 
             
             IDLE: begin
-                    next_idle = 1;
-
-                    if (FIFO_empties[0]==0 && FIFO_empties[1]==0 && FIFO_empties[2]==0 && FIFO_empties[3]==0 && FIFO_empties[4]==0 && FIFO_empties[5]==0 && FIFO_empties[6]==0 && FIFO_empties[7]==0)
+                    idle_out=1;
+                    alto_out=alto;
+                    bajo_out=bajo;
+                    if (reset == 1) begin
+                        sig_estado = RESET;
+                    end
+                    else if (!reset && init)begin
+                        sig_estado=INIT;
+                    end
+                    else if (FIFO_empties== 8'b11111111)
                     begin
                         sig_estado = IDLE;
-                    end
-
+                    end                  
+                    
                     else begin
                         sig_estado = ACTIVE;
                     end
 
-                    if (reset == 1) sig_estado = RESET;
                     
+                    
+                end
+
+            ACTIVE: begin 
+                    idle_out=0;
+                    bajo_out=bajo_out;
+                    alto_out=alto_out;
+                    if (reset == 1) begin
+                        sig_estado = RESET;
+                    end
+                    else if (!reset && init)begin
+                        sig_estado=INIT;
+                    end
+                    
+                    else if(FIFO_empties==  8'b11111111 )begin   
+                        sig_estado = IDLE;
+                    end
+                    else begin
+                        sig_estado = ACTIVE;
                     end
 
-            ACTIVE: begin
-                    if (!FIFO_empties) 
-                    begin
-                        sig_estado = ACTIVE;
-                        next_active = 1;
-                        next_idle = 0;
-                    end
-                    else if (reset==1) sig_estado = RESET;
+
                     
                 end
             

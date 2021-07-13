@@ -9,8 +9,8 @@ module probador_maquina(
     output reg   [7:0]           bajo,                   //umbral bajo
     output reg   [7:0]           alto,                   //umbral alto
 
-    output reg [3:0]        estado_actual,         //
-    output reg [3:0]        sig_estado,
+    input  [3:0]        estado_actual,         //
+    input [3:0]        sig_estado,
 
     output reg [7:0]             empty_fifos,
 
@@ -31,37 +31,31 @@ module probador_maquina(
 
     $dumpfile("probmaq.vcd");
     $dumpvars();
-    reset <= 0;
+    reset <= 1;
     init<=0;
     bajo<=0000;
     alto<=0000;
-    empty_fifos[0] <= 0;
-    empty_fifos[1] <= 0;
-    empty_fifos[2] <= 0;
-    empty_fifos[3] <= 0;
-    empty_fifos[4] <= 0;
-    empty_fifos[5] <= 0;
-    empty_fifos[6] <= 0;
-    empty_fifos[7] <= 0;
-    empty_fifos[8] <= 0;
+    empty_fifos=8'hFF;
     
     @(posedge clk);
     reset <= 0;
+    init<=1;
     
     @(posedge clk);
-    reset <= 1;
+    reset <= 0;
+    init<=0;
     
     @(posedge clk);
     bajo<=00111000;
     alto<=01110000;
 
     @(posedge clk);
-    init<=1;
+    
     bajo<=00111110;
     alto<=01110010;
     
     @(posedge clk);
-    init<=1;
+   
 
     @(posedge clk);
     @(posedge clk);
@@ -81,7 +75,7 @@ module probador_maquina(
     @(posedge clk);
     bajo<=00111000;
     alto<=01110000;
-
+    init<=1;
 
     @(posedge clk);
     @(posedge clk);
