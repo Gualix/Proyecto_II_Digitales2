@@ -1,7 +1,7 @@
 /* Este fifo implementa el pop y el push como control de sus entradas y salidas
 
 */
-//`include "memoria.v"
+
 
 module Fifo #(  parameter data_width = 10,
 			    parameter address_width = 8)
@@ -17,7 +17,8 @@ module Fifo #(  parameter data_width = 10,
             output reg almost_full_fifo,
             output error,
             
-            /*output [2:0] wr_ptr, rd_ptr,*/	
+            input [2:0] alto,bajo, 
+            	
             output [data_width-1:0] FIFO_data_out);
 
             parameter size_fifo = address_width-1; 
@@ -27,8 +28,7 @@ module Fifo #(  parameter data_width = 10,
 
 
 
-memoria mem(.clk(clk), .reset(reset), /*.wr_ptr(wr_ptr),.rd_ptr(rd_ptr),*/ .wrmem_enable(wr_enable)
-    ,.rdmem_enable(rd_enable), .memo_data_in(FIFO_data_in),.memo_data_out(FIFO_data_out) );
+memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_enable), .memo_data_in(FIFO_data_in),.memo_data_out(FIFO_data_out) );
 
 
     always @(posedge clk) begin
@@ -115,14 +115,14 @@ memoria mem(.clk(clk), .reset(reset), /*.wr_ptr(wr_ptr),.rd_ptr(rd_ptr),*/ .wrme
         empty_fifo<=0;
     end
 // Llenado del almost_empty
-    if (cnt==1)begin
+    if (cnt==bajo)begin
         almost_empty_fifo<=1;
     end
     else begin
         almost_empty_fifo<=0;
     end
 //Llenado del almost_full
-    if (cnt == size_fifo-1)begin
+    if (cnt == alto)begin
         almost_full_fifo<=1;
     end
     else begin
