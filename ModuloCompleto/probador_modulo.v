@@ -2,16 +2,17 @@ module probador_modulo#(parameter data_width = 10,
 						parameter address_width = 8)
 						(output reg clk,reset, 
 						output reg [data_width-1:0] FIFO_data_in0,FIFO_data_in1,FIFO_data_in2,FIFO_data_in3,
-                        output reg push0,push1,push2,push3,
-                        output reg pop0,pop1,pop2,pop3,
+                        output reg push0, push1,push2, push3,
+                        output reg pop0, pop1, pop2, pop3,
 
                         input [7:0] empty_fifos,
-						input [data_width-1:0] FIFO_data_out4,FIFO_data_out5,FIFO_data_out6,FIFO_data_out7,
-						input [data_width-1:0] FIFO_data_out_synth);
+						input [data_width-1:0] FIFO_data_out4,FIFO_data_out5,FIFO_data_out6,FIFO_data_out7
+						//input [data_width-1:0] FIFO_data_out_synth
+						);
 
 
 	initial begin
-	$dumpfile("FifoPushPop.vcd");
+	$dumpfile("ModuloTEst.vcd");
 	$dumpvars;
 
 

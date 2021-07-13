@@ -23,35 +23,36 @@ module conexion#(parameter data_width = 10,
                 input [data_width-1:0] FIFO_data_in1,
                 input [data_width-1:0] FIFO_data_in2,
                 input [data_width-1:0] FIFO_data_in3,
-/*
-                input [data_width-1:0] FIFO_data_in4,
-                input [data_width-1:0] FIFO_data_in5,
-                input [data_width-1:0] FIFO_data_in6,
-                input [data_width-1:0] FIFO_data_in7,*/
 
                 output reg [7:0] empty_fifos,
 
-               /* output  [data_width-1:0] FIFO_data_out0,
-                output  [data_width-1:0] FIFO_data_out1,
-                output  [data_width-1:0] FIFO_data_out2,
-                output [data_width-1:0] FIFO_data_out3,*/
                 output  [data_width-1:0] FIFO_data_out4,
                 output  [data_width-1:0] FIFO_data_out5,
                 output  [data_width-1:0] FIFO_data_out6,
                 output  [data_width-1:0] FIFO_data_out7
+                
+                /*
+                input [data_width-1:0] FIFO_data_in4,
+                input [data_width-1:0] FIFO_data_in5,
+                input [data_width-1:0] FIFO_data_in6,
+                input [data_width-1:0] FIFO_data_in7,*/
+                /* output  [data_width-1:0] FIFO_data_out0,
+                output  [data_width-1:0] FIFO_data_out1,
+                output  [data_width-1:0] FIFO_data_out2,
+                output [data_width-1:0] FIFO_data_out3,*/
 
 );
-wire pop0,pop1,pop2,pop3;
-wire push4,push5,push6,push7;
-wire almost_full_P0, almost_full_P1, almost_full_P2, almost_full_P3;
-wire empty_P0,empty_P1,empty_P2,empty_P3;
-wire empty_P4,empty_P5,empty_P6,empty_P7;
-wire[9:0] out_demux;
+
 wire [1:0] select;
+wire [9:0] out_demux;
+wire pop0, pop1, pop2, pop3;
+wire push4, push5, push6, push7;
+wire empty_P0,empty_P1, empty_P2, empty_P3;
+wire empty_P4,empty_P5, empty_P6, empty_P7;
+wire almost_full_P0, almost_full_P1, almost_full_P2, almost_full_P3;
 
-
-wire  [data_width-1:0] FIFO_data_out0,FIFO_data_out1,FIFO_data_out2,FIFO_data_out3;
-wire [data_width-1:0] FIFO_data_in4,FIFO_data_in5,FIFO_data_in6,FIFO_data_in7;
+wire [data_width-1:0] FIFO_data_out0, FIFO_data_out1, FIFO_data_out2, FIFO_data_out3;
+wire [data_width-1:0] FIFO_data_in4, FIFO_data_in5, FIFO_data_in6, FIFO_data_in7;
 
 
 /*FIFOS de entrada*/
@@ -66,7 +67,6 @@ Fifo fifo0(
     .FIFO_data_out(FIFO_data_out0[data_width-1:0]),
     .empty_fifo(empty_P0)
 
-    
 );
 
 Fifo fifo1(
@@ -80,7 +80,6 @@ Fifo fifo1(
     .FIFO_data_out(FIFO_data_out1[data_width-1:0]),
     .empty_fifo(empty_P1)
 
-    
 );
 
 
@@ -99,8 +98,6 @@ Fifo fifo2(
 );
 
 
-
-
 Fifo fifo3(
     /*input*/
     .clk(clk),
@@ -112,7 +109,6 @@ Fifo fifo3(
     .FIFO_data_out(FIFO_data_out3[data_width-1:0]),
     .empty_fifo(empty_P3)
 
-    
 );
 
 
@@ -138,8 +134,6 @@ demux4x1 demux(
     .out_2(FIFO_data_in6[data_width-1:0]),
     .out_3(FIFO_data_in7[data_width-1:0])
     
-
-
 );
 
 
@@ -158,7 +152,6 @@ Fifo fifo4(
     .empty_fifo(empty_P4),
     .almost_full_fifo(almost_full_P0)
 
-    
 );
 
 Fifo fifo5(
@@ -176,7 +169,6 @@ Fifo fifo5(
     
 );
 
-
 Fifo fifo6(
     /*input*/
     .clk(clk),
@@ -191,8 +183,6 @@ Fifo fifo6(
 
     
 );
-
-
 
 
 Fifo fifo7(
@@ -235,8 +225,6 @@ arbitro Arbitro2(
             .select(select[1:0])
 
 );
-
-
 
 
 /*Llenado de los empty fifos
