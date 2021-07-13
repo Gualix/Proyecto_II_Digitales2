@@ -21,7 +21,7 @@ module contador#(
 
     input       clk,                        //reloj
     input       reset,                      //reset
-    input       [2:0] idx,                        //index
+    input       [1:0] idx,                        //index
     input       req,                        //request
     input       [9:0]            data_in_0,  
     input       [9:0]            data_in_1,  

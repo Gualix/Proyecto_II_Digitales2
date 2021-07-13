@@ -82,7 +82,7 @@ always @(posedge clk) begin
 
 
 
-        if (~almost_full_P0 && ~almost_full_P1 && ~almost_full_P2 && ~almost_full_P3)begin
+        if (almost_full_P0==0 && almost_full_P1==0 && almost_full_P2==0 && almost_full_P3==0)begin
             push_F0 <= 1;
             push_F1 <= 1;
             push_F2 <= 1;
