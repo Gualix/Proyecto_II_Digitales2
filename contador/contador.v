@@ -99,6 +99,7 @@ begin
                         
                        //el dato anterior ahora es el dato entrante
                         contador_fifo0  <= contador_fifo0 + 1;  
+                        valid_contador  <= 1;
 
                     end
                     
@@ -108,6 +109,7 @@ begin
                         
                          //el dato anterior ahora es el dato entrante
                         contador_fifo1  <= contador_fifo1 + 1;    
+                        valid_contador  <= 1;
                         
                     end
 
@@ -117,6 +119,7 @@ begin
                         
                         //el dato anterior ahora es el dato entrante
                         contador_fifo2  <= contador_fifo2 + 1;    
+                        valid_contador  <= 1;
                         
                     end
 
@@ -125,6 +128,7 @@ begin
                         
                         //el dato anterior ahora es el dato entrante
                         contador_fifo3  <= contador_fifo3 + 1;
+                        valid_contador  <= 1;
                         
                     end
 
