@@ -5,21 +5,20 @@ module probador_contador
 
     output reg       clk,                        //reloj
     output reg       reset,                      //reset
-    output reg       [2:0] idx,                        //index
+    output reg       [1:0] idx,                        //index
     output reg       req,                        //request
-    output reg       [9:0]            data_in_0,  
-    output reg       [9:0]            data_in_1,  
-    output reg       [9:0]            data_in_2,  
-    output reg       [9:0]            data_in_3,      
+    output reg       pop_F0,  
+    output reg       pop_F1,  
+    output reg       pop_F2,  
+    output reg       pop_F3,      
     //entrada datos del fifo
-    output reg       IDLE,                       //activado para leer
+    output reg       IDLE,                      //activado para leer
 
-//*********************** ENTRADAS ******************************//
-    input                      valid_contador, //salida valid contador
-    input  [4:0]               contador_out,
-
-    input                      valid_contador_s, //salida valid contador
-    input  [4:0]               contador_out_s  
+//*********************** SALIDAS ******************************//
+    input                          valid_contador, //salida  valid_contador contador
+    input  [4:0]                   contador_out,
+    input                          valid_contador_s,
+    input  [4:0]                   contador_out_s
 
 
 
@@ -31,10 +30,10 @@ initial begin
         $dumpvars();
 
     reset <= 1;
-    data_in_0 <= 0;
-    data_in_1 <= 0;
-    data_in_2 <= 0;
-    data_in_3 <= 0;
+    pop_F0 <= 0;
+    pop_F1 <= 0;
+    pop_F2 <= 0;
+    pop_F3 <= 0;
 
     @(posedge clk);
 
@@ -55,10 +54,10 @@ initial begin
     req   <= 1;
     IDLE  <= 1;
     idx   <= 0;
-    data_in_0 <= 00000;
-    data_in_1 <= 00001;
-    data_in_2 <= 00011;
-    data_in_3 <= 00001;
+    pop_F0 <= 00000;
+    pop_F1 <= 00001;
+    pop_F2 <= 00011;
+    pop_F3 <= 00001;
 
 
     @(posedge clk);
@@ -66,10 +65,10 @@ initial begin
     req   <= 1;
     IDLE  <= 1;
     idx   <= 0;
-    data_in_0 <= 00000;
-    data_in_1 <= 00001;
-    data_in_2 <= 00011;
-    data_in_3 <= 00001;
+    pop_F0 <= 00000;
+    pop_F1 <= 00001;
+    pop_F2 <= 00011;
+    pop_F3 <= 00001;
 
 
      @(posedge clk);
@@ -77,40 +76,40 @@ initial begin
     req   <= 1;
     IDLE  <= 1;
     idx   <= 1;
-    data_in_0 <= 01000;
-    data_in_1 <= 00001;
-    data_in_2 <= 00000;
-    data_in_3 <= 00000;
+    pop_F0 <= 01000;
+    pop_F1 <= 00001;
+    pop_F2 <= 00000;
+    pop_F3 <= 00000;
     
     @(posedge clk);
     reset <= 0;
     req   <= 1;
     IDLE  <= 1;
     idx   <= 1;
-    data_in_0 <= 00001;
-    data_in_1 <= 00001;
-    data_in_2 <= 00000;
-    data_in_3 <= 00001;
+    pop_F0 <= 00001;
+    pop_F1 <= 00001;
+    pop_F2 <= 00000;
+    pop_F3 <= 00001;
 
     @(posedge clk);
     reset <= 0;
     req   <= 1;
     IDLE  <= 1;
     idx   <= 2;
-    data_in_0 <= 00111;
-    data_in_1 <= 01110;
-    data_in_2 <= 00011;
-    data_in_3 <= 00001;
+    pop_F0 <= 00111;
+    pop_F1 <= 01110;
+    pop_F2 <= 00011;
+    pop_F3 <= 00001;
 
     @(posedge clk);
     reset <= 0;
     req   <= 1;
     IDLE  <= 1;
     idx   <= 3;
-    data_in_0 <= 00001;
-    data_in_1 <= 00001;
-    data_in_2 <= 00011;
-    data_in_3 <= 00001;
+    pop_F0 <= 00001;
+    pop_F1 <= 00001;
+    pop_F2 <= 00011;
+    pop_F3 <= 00001;
     
 
    

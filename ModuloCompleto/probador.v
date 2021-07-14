@@ -2,7 +2,7 @@ module probador #(
     
     output reg clk,
     output reg reset,
-/output regs/
+    output regs,
     //Para la maquina de estados
     output reg init,
     output reg [2:0] alto,bajo,

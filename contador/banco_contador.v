@@ -6,12 +6,12 @@ module banco_contador;
 
     wire       clk;                        //reloj
     wire       reset;                      //reset
-    wire       [2:0] idx;                        //index
+    wire       [1:0] idx;                        //index
     wire       req;                        //request
-    wire       [9:0]               data_in_0;  
-    wire       [9:0]               data_in_1;  
-    wire       [9:0]               data_in_2;  
-    wire       [9:0]               data_in_3;      
+    wire       pop_F0;  
+    wire       pop_F1;  
+    wire       pop_F2;  
+    wire       pop_F3;      
     wire       IDLE;                      //activado para leer
 
     wire                           valid_contador; //salida  valid_contador contador
@@ -25,37 +25,37 @@ module banco_contador;
 contador cont
 (
     /*AUTOINST*/
-    .clk               (clk),           
-    .reset             (reset),           
-    .idx               (idx[2:0]),            
-    .req               (req),          
-    .data_in_0          (data_in_0[9:0]),
-    .data_in_1          (data_in_1[9:0]),  
-    .data_in_2          (data_in_2[9:0]),     
-    .data_in_3          (data_in_3[9:0]),      
+    .clk                (clk),           
+    .reset              (reset),           
+    .idx                (idx[1:0]),            
+    .req                (req),          
+    .pop_F0          (pop_F0),
+    .pop_F1          (pop_F1),  
+    .pop_F2          (pop_F2),     
+    .pop_F3             (pop_F3),      
     .IDLE               (IDLE),                      
 
     .valid_contador     (valid_contador), 
-    .contador_out      (contador_out[4:0] )
+    .contador_out       (contador_out[4:0] )
 );
 
 probador_contador prob(
 
     /*AUTOINST*/
-    .clk               (clk),           
-    .reset             (reset),           
-    .idx               (idx[2:0]),            
-    .req               (req),          
-    .data_in_0          (data_in_0[9:0]),
-    .data_in_1          (data_in_1[9:0]),  
-    .data_in_2          (data_in_2[9:0]),     
-    .data_in_3          (data_in_3[9:0]),      
+    .clk                (clk),           
+    .reset              (reset),           
+    .idx                (idx[1:0]),            
+    .req                (req),          
+    .pop_F0          (pop_F0),
+    .pop_F1          (pop_F1),  
+    .pop_F2          (pop_F2),     
+    .pop_F3             (pop_F3),      
     .IDLE               (IDLE),                      
 
     .valid_contador                   (valid_contador), 
     .contador_out                     (contador_out[4:0] ),
-    .valid_contador_s       (valid_contador_s), 
-    .contador_out_s         (contador_out_s[4:0] )
+    .valid_contador_s                 (valid_contador_s), 
+    .contador_out_s                   (contador_out_s[4:0] )
 
 );
 
@@ -63,12 +63,12 @@ contador_s cont_sintetizado (
     /*AUTOINST*/
     .clk                    (clk),           
     .reset                  (reset),           
-    .idx                    (idx[2:0]),            
+    .idx                    (idx[1:0]),            
     .req                    (req),          
-    .data_in_0              (data_in_0[9:0]),
-    .data_in_1              (data_in_1[9:0]),  
-    .data_in_2              (data_in_2[9:0]),     
-    .data_in_3              (data_in_3[9:0]),      
+    .pop_F0              (pop_F0),
+    .pop_F1              (pop_F1),  
+    .pop_F2              (pop_F2),     
+    .pop_F3                 (pop_F3),      
     .IDLE                   (IDLE),                      
 
     .valid_contador_s       ( valid_contador_s ), 

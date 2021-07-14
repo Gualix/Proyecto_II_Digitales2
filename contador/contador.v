@@ -21,28 +21,29 @@ module contador#(
 
     input       clk,                        //reloj
     input       reset,                      //reset
-    input       [2:0] idx,                        //index
+    input       [1:0] idx,                        //index
     input       req,                        //request
-    input       [9:0]            data_in_0,  
-    input       [9:0]            data_in_1,  
-    input       [9:0]            data_in_2,  
-    input       [9:0]            data_in_3,      
+    input       pop_F0,  
+    input       pop_F1,  
+    input       pop_F2,  
+    input       pop_F3,      
     //entrada datos del fifo
     input       IDLE,                      //activado para leer
 
 //*********************** SALIDAS ******************************//
     output reg                          valid_contador, //salida  valid_contador contador
-    output reg  [4:0]                   contador_out);  //contador salida del index de interes
+    output reg  [4:0]                   contador_out,
+    output reg                          valid_contador_s,
+    output reg  [4:0]                   contador_out_s
+    
+    
+    );  //contador salida del index de interes
 
 
 
 //******************** REGISTROS **********************************//
 
 
-    reg     [ 9: 0]      data_ant_0;             //dato anterior
-    reg     [ 9: 0]      data_ant_1;             //dato anterior
-    reg     [ 9: 0]      data_ant_2;             //dato anterior
-    reg     [ 9: 0]      data_ant_3;             //dato anterior
 
     
     //reg     [tam-1:0]         contador_fifo1;        //contador de salida
@@ -52,7 +53,7 @@ module contador#(
     reg     [ 9: 0]      contador_fifo2;
     reg     [ 9: 0]      contador_fifo3;
 
-    reg     [ 9: 0]      data_vacio;
+
 
 //********************* LOGICA ******************************//
 
@@ -63,23 +64,23 @@ begin
     if (reset==1) 
         begin
             
-             contador_out <= 5'b00000;          //salida data
-             valid_contador <= 0;                    // valid_contador
+             contador_out   <=  0;          //salida data
+             valid_contador <=  0;          // valid_contador
             
             /* Fifo 0 */
-            data_ant_0 <= 0;                //reg anterior en 0
+                                                //reg anterior en 0
             contador_fifo0 <= 0;                //contador fifo 1 en 0
             
             /* Fifo 1 */            
-            data_ant_1 <= 0;
+            
             contador_fifo1 <= 0;
 
             /* Fifo 2 */
-            data_ant_2 <= 0;
+            
             contador_fifo2 <= 0;
 
             /* Fifo 3 */
-            data_ant_3 <= 0;
+            
             contador_fifo3 <= 0;
 
 
@@ -88,41 +89,41 @@ begin
 
     else if (reset == 0)
         begin
-                    data_vacio <= 0;
+                    
                 
                     //*********DATO0***************//
                     
                     
-                    if(data_in_0 != data_vacio)
+                    if(pop_F0!=0)
                     begin
                         
-                        data_ant_0      <= data_in_0;        //el dato anterior ahora es el dato entrante
+                       //el dato anterior ahora es el dato entrante
                         contador_fifo0  <= contador_fifo0 + 1;  
 
                     end
                     
-                    if(data_in_1 != data_vacio)
+                    if(pop_F1!=0)
 
                     begin
                         
-                        data_ant_1      <= data_in_1;        //el dato anterior ahora es el dato entrante
+                         //el dato anterior ahora es el dato entrante
                         contador_fifo1  <= contador_fifo1 + 1;    
                         
                     end
 
-                    if(data_in_2 != data_vacio)
+                    if(pop_F2!=0)
 
                     begin
                         
-                        data_ant_2      <= data_in_2;        //el dato anterior ahora es el dato entrante
+                        //el dato anterior ahora es el dato entrante
                         contador_fifo2  <= contador_fifo2 + 1;    
                         
                     end
 
-                    if(data_in_3 != data_vacio)
+                    if(pop_F3!=0)
                     begin
                         
-                        data_ant_3      <= data_in_3;        //el dato anterior ahora es el dato entrante
+                        //el dato anterior ahora es el dato entrante
                         contador_fifo3  <= contador_fifo3 + 1;
                         
                     end
