@@ -93,8 +93,8 @@ module maquina_de_estados(
                 end 
 //SEÑAL INIT VIENE DEL PROBADOR
             INIT: begin idle_out=0;
-                    bajo_out=bajo_out;
-                    alto_out=alto_out;
+                    alto_out=alto;
+                    bajo_out=bajo;
 
                     if (!init) begin
                         sig_estado = IDLE;
@@ -111,8 +111,9 @@ module maquina_de_estados(
             
             IDLE: begin
                     idle_out=1;
-                    alto_out=alto;
-                    bajo_out=bajo;
+                    bajo_out=bajo_out;
+                    alto_out=alto_out;
+                    
                     if (reset == 1) begin
                         sig_estado = RESET;
                     end

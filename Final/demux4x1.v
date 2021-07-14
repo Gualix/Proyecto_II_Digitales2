@@ -15,7 +15,7 @@ module demux4x1 (
 	    output reg [9:0] out_2,
 	    output reg [9:0] out_3);
             
-always@(posedge clk) begin
+always@(*) begin
            
     if (reset == 0)begin //Si el reset es 1 el flop puede tomar el valor de alguna de las dos entradas
         case(select)  

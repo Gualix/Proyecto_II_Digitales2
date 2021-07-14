@@ -16,15 +16,15 @@ module mux4x1 (
 
         output reg [9:0] out_mux);
             
-always@(posedge clk) begin
+always@(*) begin
            
     if (reset == 0)begin //Si el reset es 1 el flop puede tomar el valor de alguna de las dos entradas
         case(select)  
-            2'b00    : out_mux <= in_0;       // If sel=0, output can be a  
-            2'b01    : out_mux <= in_1;       // If sel=1, output is b  
-            2'b10    : out_mux <= in_2;       // If sel=2, output is c  
-            2'b11    : out_mux <= in_3;       // If sel=3, output is c  
-            default  : out_mux <= in_0;       // If sel is something, out is commonly zero  
+            2'b00    : out_mux = in_0;       // If sel=0, output can be a  
+            2'b01    : out_mux = in_1;       // If sel=1, output is b  
+            2'b10    : out_mux = in_2;       // If sel=2, output is c  
+            2'b11    : out_mux = in_3;       // If sel=3, output is c  
+            default  : out_mux = in_0;       // If sel is something, out is commonly zero  
         endcase  
     end
     else if (reset==1) begin

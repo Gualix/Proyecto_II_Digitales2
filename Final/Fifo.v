@@ -31,14 +31,14 @@ module Fifo #(  parameter data_width = 10,
 memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_enable), .memo_data_in(FIFO_data_in),.memo_data_out(FIFO_data_out) );
 
 
-    always @(posedge clk) begin
+    always @(*) begin
         if (reset == 0) begin
             
             if (push) begin
-                wr_enable<=1;            
+                wr_enable=1;            
             end
             else if (~push) begin
-                wr_enable<=0;
+                wr_enable=0;
             end
 
             if (pop  ) begin
@@ -52,7 +52,7 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
             rd_enable<=0;
             wr_enable<=0;
             full_fifo<=0;
-            empty_fifo<=0;
+            empty_fifo<=1;
         end
     end
 
@@ -60,7 +60,7 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
 
     always @(posedge clk) begin
         if (~reset)begin
-            if(wr_enable==1)begin
+            if(wr_enable==1 && FIFO_data_in!=0)begin
                 if (rd_enable)begin
                     cnt<=cnt;
                 end   
@@ -97,7 +97,7 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
 
   
 
-  always @(posedge clk) begin
+  always @(*) begin
      //Llenado del full fifo 
     if (cnt== 3'b111) begin
         
