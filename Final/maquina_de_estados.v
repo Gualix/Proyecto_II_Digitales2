@@ -8,8 +8,7 @@ module maquina_de_estados(
     input   [2:0]           bajo,                   //umbral bajo
     input   [2:0]           alto,                   //umbral alto
 
-    output reg [3:0]        estado_actual,         //
-    output reg [3:0]        sig_estado,
+  
 
     input [7:0]             empty_fifos,
 
@@ -29,6 +28,8 @@ module maquina_de_estados(
 );
 
 
+reg [3:0]        estado_actual;        //
+reg [3:0]        sig_estado;
 /************************** ESTADOS ONE HOT ******************************/
 
     parameter RESET =       4'b0000; //1
@@ -78,7 +79,7 @@ module maquina_de_estados(
         FIFO_empties[6] = empty_fifos[6]; 
         FIFO_empties[7] = empty_fifos[7];
 
-      
+        estado_actual=sig_estado;
         
        
        case(estado_actual)
@@ -86,15 +87,18 @@ module maquina_de_estados(
             RESET:begin idle_out=0;
                     
 
-                    if (reset == 0) sig_estado = INIT;  
+                    if (reset == 0) begin
+                        sig_estado = INIT;  
+                    end
                      
-                    else sig_estado = RESET;
-                    
+                    else begin
+                        sig_estado = RESET;
+                    end
                 end 
 //SEÑAL INIT VIENE DEL PROBADOR
             INIT: begin idle_out=0;
-                    alto_out=alto;
-                    bajo_out=bajo;
+                    bajo_out=bajo_out;
+                    alto_out=alto_out;
 
                     if (!init) begin
                         sig_estado = IDLE;
@@ -111,9 +115,8 @@ module maquina_de_estados(
             
             IDLE: begin
                     idle_out=1;
-                    bajo_out=bajo_out;
-                    alto_out=alto_out;
-                    
+                    alto_out=alto;
+                    bajo_out=bajo;
                     if (reset == 1) begin
                         sig_estado = RESET;
                     end

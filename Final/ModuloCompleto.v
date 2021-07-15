@@ -43,12 +43,10 @@ module ModuloCompleto(
 
     //Output del contador 
     output    valid_contador, //salida  valid_contador contador
-    output  [4:0] contador_out, //contador salida del index de interes
+    output  [4:0] contador_out //contador salida del index de interes
 
 
-    //Outputs de la maquina de estados
-    output  [3:0] estado_actual,
-    output  [3:0] sig_estado
+
 
 
 
@@ -57,6 +55,7 @@ module ModuloCompleto(
 
 wire [2:0] alto_out, bajo_out;
 wire    [7:0] empty_fifos;
+wire IDLE;
 
 
 conexion conexion_final(
@@ -117,8 +116,6 @@ maquina_de_estados maquina(
     .bajo(bajo),                   //umbral bajo
     .alto(alto),                   //umbral alto
 
-    .estado_actual(estado_actual),         //
-    .sig_estado(sig_estado),
 
     .empty_fifos(empty_fifos),
 
