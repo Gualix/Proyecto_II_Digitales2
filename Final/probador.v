@@ -81,9 +81,9 @@ module probador (
         @(posedge clk)
         init <= 0;
         push0<=1;
-        push1<=1;
-        push2<=1;
-        push3<=1;
+        push1<=0;
+        push2<=0;
+        push3<=0;
         repeat(6) begin
             
         @(posedge clk)
@@ -166,10 +166,11 @@ module probador (
         @(posedge clk)
         FIFO_data_in0 <= 0000000001;
         FIFO_data_in1 <= 0100000001;
-        FIFO_data_in2 <= 0000000001;
-        FIFO_data_in3 <= 0100000001;
+        FIFO_data_in2 <= 1000000001;
+        FIFO_data_in3 <= 1100000001;
         @(posedge clk)
         @(posedge clk)
+        pop6<=0;
         push0<=1;
         push1<=1;
         push2<=1;
@@ -192,9 +193,118 @@ module probador (
         @(posedge clk)
         @(posedge clk)
         @(posedge clk)
+        pop4<=1;
+        pop5<=1;
+        pop6<=1;
+        pop7<=1;
+        @(posedge clk)
+        @(posedge clk)
+        repeat(10)begin
+        @(posedge clk)
+        FIFO_data_in0 <= FIFO_data_in0+1 ;
+        FIFO_data_in1 <= FIFO_data_in1+1;
+        FIFO_data_in2 <= FIFO_data_in2+1 ;
+        FIFO_data_in3 <= FIFO_data_in3+1;
+        end
+        @(posedge clk)
+        @(posedge clk)
+        
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        FIFO_data_in0 <= 0;
+        FIFO_data_in1 <= 0;
+        FIFO_data_in2 <= 0;
+        FIFO_data_in3 <= 0;
+        //Se le hace pop a todo
+        /*
+        //ULTIMA PRUEBA
+        @(posedge clk)
+        reset<=1;
+        @(posedge clk)
+        reset<=0;
+        init <= 1;
 
+        @(posedge clk)
+        bajo =  3'b011;         //3
+        alto =  3'b101;         //5
 
-       
+        @(posedge clk)
+        init <= 0;
+        */
+        //YA cambia a active
+        @(posedge clk)
+        push0<=1;
+        push1<=1;
+        push2<=1;
+        push3<=1;
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+      
+        @(posedge clk)
+
+        FIFO_data_in0 <= 0000000001;
+        FIFO_data_in1 <= 0100000001;
+        FIFO_data_in2 <= 1000000001;
+        FIFO_data_in3 <= 1100000001;
+        push0<=1;
+        push1<=1;
+        push2<=1;
+        push3<=1;
+        
+        //Ultima prueba de los datos
+        //Reseteo el sistema
+        
+        
+        //METO LOS DATOS   
+
+        repeat(3)begin   
+        @(posedge clk)
+        FIFO_data_in0 <= FIFO_data_in0+1 ;
+        FIFO_data_in1 <= FIFO_data_in1+1;
+        FIFO_data_in2 <= FIFO_data_in2+1 ;
+        FIFO_data_in3 <= FIFO_data_in3+1;
+        end
+        @(posedge clk)
+        push0<=0;
+        push1<=0;
+        push2<=0;
+        push3<=0;
+        @(posedge clk)
+        repeat(20)begin
+        @(posedge clk)
+        FIFO_data_in0 <= FIFO_data_in0+1 ;
+        FIFO_data_in1 <= FIFO_data_in1+1;
+        FIFO_data_in2 <= FIFO_data_in2+1 ;
+        FIFO_data_in3 <= FIFO_data_in3+1;
+        end
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        pop4<=1;
+        pop5<=1;
+        pop6<=1;
+        pop7<=1;
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+        @(posedge clk)
+
+       //Se envian sets de 4 palabras
         
 
       
