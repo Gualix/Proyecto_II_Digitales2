@@ -1,0 +1,55 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Jul 15 19:07:16 2021
+[*]
+[dumpfile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/contador/contador.vcd"
+[dumpfile_mtime] "Thu Jul 15 19:00:10 2021"
+[dumpfile_size] 38617
+[savefile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/contador/ondas_contador.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-2.823677 19 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 192
+[signals_width] 187
+[sst_expanded] 1
+[sst_vpaned_height] 157
+@200
+-Senales de entrada
+@28
+banco_contador.clk
+banco_contador.reset
+banco_contador.req
+banco_contador.IDLE
+[color] 2
+banco_contador.empty_P4
+[color] 3
+banco_contador.empty_P5
+[color] 7
+banco_contador.empty_P6
+[color] 1
+banco_contador.empty_P7
+@200
+-Pops de entrada del FIFO
+@28
+[color] 2
+banco_contador.pop_F0
+[color] 3
+banco_contador.pop_F1
+[color] 7
+banco_contador.pop_F2
+[color] 1
+banco_contador.pop_F3
+@200
+-Indice de lectura
+@25
+[color] 5
+banco_contador.idx[1:0]
+@22
+banco_contador.contador_out[4:0]
+banco_contador.contador_out_s[4:0]
+@28
+banco_contador.valid_contador
+banco_contador.valid_contador_s
+[pattern_trace] 1
+[pattern_trace] 0

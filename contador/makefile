@@ -8,4 +8,4 @@ seds:
 ejecutar:
 	iverilog -o contador banco_contador.v 
 	vvp contador
-	
+	gtkwave contador.vcd	
