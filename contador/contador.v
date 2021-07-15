@@ -138,7 +138,7 @@ begin
                     end
 
                     //************LECTURA*******************//
-                    if(req == 1 &&&& IDLE == 1)
+                    if(req == 1 && IDLE == 1)
                     begin
                         if(idx == 0)
                         begin
