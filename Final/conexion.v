@@ -11,6 +11,8 @@ module conexion#(parameter data_width = 10,
                 input reset,
                 input [2:0] alto,bajo,
 
+                
+
                 //Contador
                 input       [1:0] idx,                        //index
                 input       req,                        //request
@@ -70,6 +72,26 @@ wire almost_full_P0, almost_full_P1, almost_full_P2, almost_full_P3;
 wire [data_width-1:0] FIFO_data_out0, FIFO_data_out1, FIFO_data_out2, FIFO_data_out3;
 wire [data_width-1:0] FIFO_data_in4, FIFO_data_in5, FIFO_data_in6, FIFO_data_in7;
 
+contador cont(
+
+    //input
+    .clk(clk),
+    .reset(reset),
+    .idx (idx [1:0]),
+    .req (req),
+    .pop_F0 (pop0),
+    .pop_F1 (pop1),
+    .pop_F2 (pop2),
+    .pop_F3 (pop3),
+
+    .IDLE (IDLE),
+
+    //outputs
+    .valid_contador (valid_contador),
+    .contador_out   (contador_out [4:0])
+
+
+);
 
 /*FIFOS de entrada*/
 Fifo fifo0(
@@ -283,26 +305,7 @@ Se llena los empty_fifos para la maquina de Estados*/
 
 
 
-/*Instanciacion para el contador*/
 
-contador contadormodulo(
-        /*Inputs*/
-        .clk(clk),
-        .reset(reset),
-        .idx(idx),
-        .IDLE(IDLE),
-        .req(req),
-
-        .data_in_0(FIFO_data_out4),
-        .data_in_1(FIFO_data_out5),
-        .data_in_2(FIFO_data_out6),
-        .data_in_3(FIFO_data_out7),
-
-
-        //Outputs//
-        .valid_contador(valid_contador),
-        .contador_out(contador_out)
-);
 
 
 
