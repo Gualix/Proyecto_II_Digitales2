@@ -29,6 +29,10 @@ module contador#(
     input       pop_F3,      
     //entrada datos del fifo
     input       IDLE,                      //activado para leer
+    input       empty_P4,
+    input       empty_P5,
+    input       empty_P6,
+    input       empty_P7,
 
 //*********************** SALIDAS ******************************//
     output reg                          valid_contador, //salida  valid_contador contador
@@ -94,16 +98,17 @@ begin
                     //*********DATO0***************//
                     
                     
-                    if(pop_F0!=0)
+                    if(pop_F0!=0 & empty_P4 != 0)
                     begin
                         
                        //el dato anterior ahora es el dato entrante
                         contador_fifo0  <= contador_fifo0 + 1;  
                         valid_contador  <= 1;
+                        
 
                     end
                     
-                    if(pop_F1!=0)
+                    if(pop_F1!=0 & empty_P5 !=0 )
 
                     begin
                         
@@ -113,7 +118,7 @@ begin
                         
                     end
 
-                    if(pop_F2!=0)
+                    if(pop_F2!=0 & empty_P6 !=0 )
 
                     begin
                         
@@ -123,7 +128,7 @@ begin
                         
                     end
 
-                    if(pop_F3!=0)
+                    if(pop_F3!=0 & empty_P7 !=0 )
                     begin
                         
                         //el dato anterior ahora es el dato entrante
