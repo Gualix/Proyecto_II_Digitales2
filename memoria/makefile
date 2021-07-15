@@ -9,5 +9,5 @@ memoria:
 	iverilog bancopruebas_memoria.v -o banco
 	vvp banco
 	rm banco
-	
+gtk:	
 	gtkwave SalidaMemoria.gtkw
