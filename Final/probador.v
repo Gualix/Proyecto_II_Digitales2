@@ -153,94 +153,7 @@ module probador (
         Verifique que las palabras que salieron son las mismas que
         entraron y que salieron por la salida correcta en la prioridad 
         correcta.*/
-    /*
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        pop4 <= 1;
-        pop5 <= 1;
-        pop6 <= 1;
-        pop7 <= 1;
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        pop4 <= 1;
-        pop5 <= 1;
-        pop6 <= 1;
-        pop7 <= 1;
-
-         @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        pop4 <= 1;
-        pop5 <= 1;
-        pop6 <= 1;
-        pop7 <= 1;
-
-         @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        pop4 <= 1;
-        pop5 <= 1;
-        pop6 <= 1;
-        pop7 <= 1;
-
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        @(posedge clk)
-        pop4 <= 1;
-        pop5 <= 1;
-        pop6 <= 1;
-        pop7 <= 1;*/
-
-        /*Lea los contadores de palabras.*/
-
+   
          @(posedge clk)
          IDLE <= 1;   
          req <= 1;
@@ -260,7 +173,53 @@ module probador (
         @(posedge clk)
         @(posedge clk)
         @(posedge clk)
+        @(posedge clk)
+        pop4 <= 1;
+        pop5 <= 1;
+        pop6 <= 1;
+        pop7 <= 1;
 
+        @(posedge clk)
+        @(posedge clk)
+        pop4 <= 0;
+        pop5 <= 0;
+        pop6 <= 0;
+        pop7 <= 0;
+
+        @(posedge clk)
+        push0<=1;
+        push1<=1;
+        push2<=1;
+        push3<=1;
+        FIFO_data_in0 <= 10'b0000000001;
+        FIFO_data_in1 <= 10'b0100000001;
+        FIFO_data_in2 <= 10'b1000000001;
+        FIFO_data_in3 <= 10'b1100000001;
+
+
+        repeat (7) begin
+	    @(posedge clk);
+    	FIFO_data_in0 <= FIFO_data_in0+1;
+	    FIFO_data_in1 <= FIFO_data_in1+1;
+    
+	    FIFO_data_in2 <= FIFO_data_in2+1;
+	    FIFO_data_in3 <= FIFO_data_in3+1;
+        end
+        push0<=0;
+        push1<=0;
+        push2<=0;
+        push3<=0;
+       
+        repeat (32) begin
+	    @(posedge clk);
+    	FIFO_data_in0 <= FIFO_data_in0+1;
+	    FIFO_data_in1 <= FIFO_data_in1+1;
+    
+	    FIFO_data_in2 <= FIFO_data_in2+1;
+	    FIFO_data_in3 <= FIFO_data_in3+1;
+        end
+        
+       
         /*Envíe 16 palabras, 4 a cada FIFO de entrada, y cada set de 
         4 palabras por FIFO de entrada estén con destino a cada FIFO 
         de salida (las 4x4=16 combinaciones posibles). Deje todos los
@@ -271,29 +230,7 @@ module probador (
         /*Lea los contadores de palabras y valide un aumento de 
         4 palabras por contador*/
         
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
-
-        @(posedge clk)
-        FIFO_data_in0 <= 'hFF;
-        FIFO_data_in1 <= 'hF0;
-        FIFO_data_in2 <= 'hF0;
-        FIFO_data_in3 <= 'hFF;
+        
 
       
       $finish;    
