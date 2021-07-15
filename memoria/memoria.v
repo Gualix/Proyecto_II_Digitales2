@@ -1,4 +1,5 @@
 
+
 module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 				parameter address_width = 8)	// Cantidad de bloques de mem
 				(input [data_width-1:0] memo_data_in,
@@ -24,6 +25,8 @@ module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 			if ( wrmem_enable ) begin
 				mem[wr_ptr] <= memo_data_in;
 				wr_ptr<=wr_ptr+1;
+					
+						
 			end
 		end
 	end

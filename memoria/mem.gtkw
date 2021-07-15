@@ -1,0 +1,52 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Jul 15 21:53:44 2021
+[*]
+[dumpfile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/memoria/memoria.vcd"
+[dumpfile_mtime] "Thu Jul 15 21:50:48 2021"
+[dumpfile_size] 125434
+[savefile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/memoria/mem.gtkw"
+[timestart] 0
+[size] 794 792
+[pos] -112 -105
+*-3.367998 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] bancopruebas_memoria.
+[sst_width] 192
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 225
+@200
+-Entradas:
+@28
+bancopruebas_memoria.clk
+@22
+bancopruebas_memoria.memo_data_in[9:0]
+@28
+bancopruebas_memoria.rdmem_enable
+bancopruebas_memoria.wrmem_enable
+@200
+-Salida Conductual
+@22
+bancopruebas_memoria.memo_data_out[9:0]
+@200
+-Estructural
+@22
+bancopruebas_memoria.memo_data_out_synth[9:0]
+@200
+-Puntero del estructural
+@28
+bancopruebas_memoria.u_memoria_synth.rd_ptr[2:0]
+bancopruebas_memoria.u_memoria_synth.wr_ptr[2:0]
+@200
+-Posiciones en memoria:
+@23
+bancopruebas_memoria.u_memoria_synth.\mem[0][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[1][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[2][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[3][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[4][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[5][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[6][9:0]
+bancopruebas_memoria.u_memoria_synth.\mem[7][9:0]
+[pattern_trace] 1
+[pattern_trace] 0

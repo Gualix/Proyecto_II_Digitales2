@@ -2,13 +2,13 @@
 
 (* dynports =  1  *)
 (* cells_not_processed =  1  *)
-(* src = "memoria_synth.v:2" *)
+(* src = "memoria_synth.v:3" *)
 module memoria_synth(memo_data_in, clk, reset, wrmem_enable, rdmem_enable, memo_data_out_synth);
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   wire [9:0] _0000_;
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   wire [2:0] _0001_;
-  (* src = "memoria_synth.v:15" *)
+  (* src = "memoria_synth.v:16" *)
   wire [2:0] _0002_;
   wire _0003_;
   wire _0004_;
@@ -690,9 +690,9 @@ module memoria_synth(memo_data_in, clk, reset, wrmem_enable, rdmem_enable, memo_
   wire _0680_;
   wire _0681_;
   wire _0682_;
-  (* src = "memoria_synth.v:5" *)
+  (* src = "memoria_synth.v:6" *)
   input clk;
-  (* src = "memoria_synth.v:13" *)
+  (* src = "memoria_synth.v:14" *)
   wire [31:0] i;
   wire [9:0] \mem[0] ;
   wire [9:0] \mem[1] ;
@@ -702,19 +702,19 @@ module memoria_synth(memo_data_in, clk, reset, wrmem_enable, rdmem_enable, memo_
   wire [9:0] \mem[5] ;
   wire [9:0] \mem[6] ;
   wire [9:0] \mem[7] ;
-  (* src = "memoria_synth.v:4" *)
-  input [9:0] memo_data_in;
-  (* src = "memoria_synth.v:8" *)
-  output [9:0] memo_data_out_synth;
-  (* src = "memoria_synth.v:12" *)
-  wire [2:0] rd_ptr;
-  (* src = "memoria_synth.v:6" *)
-  input rdmem_enable;
   (* src = "memoria_synth.v:5" *)
-  input reset;
-  (* src = "memoria_synth.v:12" *)
-  wire [2:0] wr_ptr;
+  input [9:0] memo_data_in;
+  (* src = "memoria_synth.v:9" *)
+  output [9:0] memo_data_out_synth;
+  (* src = "memoria_synth.v:13" *)
+  wire [2:0] rd_ptr;
+  (* src = "memoria_synth.v:7" *)
+  input rdmem_enable;
   (* src = "memoria_synth.v:6" *)
+  input reset;
+  (* src = "memoria_synth.v:13" *)
+  wire [2:0] wr_ptr;
+  (* src = "memoria_synth.v:7" *)
   input wrmem_enable;
   NOT _0683_ (
     .A(rdmem_enable),
@@ -4211,61 +4211,61 @@ module memoria_synth(memo_data_in, clk, reset, wrmem_enable, rdmem_enable, memo_
     .D(_0001_[2]),
     .Q(rd_ptr[2])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1392_ (
     .C(clk),
     .D(_0000_[0]),
     .Q(memo_data_out_synth[0])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1393_ (
     .C(clk),
     .D(_0000_[1]),
     .Q(memo_data_out_synth[1])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1394_ (
     .C(clk),
     .D(_0000_[2]),
     .Q(memo_data_out_synth[2])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1395_ (
     .C(clk),
     .D(_0000_[3]),
     .Q(memo_data_out_synth[3])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1396_ (
     .C(clk),
     .D(_0000_[4]),
     .Q(memo_data_out_synth[4])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1397_ (
     .C(clk),
     .D(_0000_[5]),
     .Q(memo_data_out_synth[5])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1398_ (
     .C(clk),
     .D(_0000_[6]),
     .Q(memo_data_out_synth[6])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1399_ (
     .C(clk),
     .D(_0000_[7]),
     .Q(memo_data_out_synth[7])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1400_ (
     .C(clk),
     .D(_0000_[8]),
     .Q(memo_data_out_synth[8])
   );
-  (* src = "memoria_synth.v:31" *)
+  (* src = "memoria_synth.v:34" *)
   DFF _1401_ (
     .C(clk),
     .D(_0000_[9]),
@@ -4321,19 +4321,19 @@ module memoria_synth(memo_data_in, clk, reset, wrmem_enable, rdmem_enable, memo_
     .D(_0082_),
     .Q(\mem[7] [9])
   );
-  (* src = "memoria_synth.v:15" *)
+  (* src = "memoria_synth.v:16" *)
   DFF _1412_ (
     .C(clk),
     .D(_0002_[0]),
     .Q(wr_ptr[0])
   );
-  (* src = "memoria_synth.v:15" *)
+  (* src = "memoria_synth.v:16" *)
   DFF _1413_ (
     .C(clk),
     .D(_0002_[1]),
     .Q(wr_ptr[1])
   );
-  (* src = "memoria_synth.v:15" *)
+  (* src = "memoria_synth.v:16" *)
   DFF _1414_ (
     .C(clk),
     .D(_0002_[2]),
