@@ -3,30 +3,26 @@
 
 module banco();
 
-    wire clk;
-    wire reset;
-    wire init;
+    wire       clk;                        //reloj
+    wire       reset;                      //reset
+    wire       [1:0] idx;                        //index
+    wire       req;                        //request
+    wire       pop_F0;  
+    wire       pop_F1;  
+    wire       pop_F2;  
+    wire       pop_F3;      
+    //entrada datos del fifo
+    wire       IDLE;                      //activado para leer
+    wire       empty_P4;
+    wire       empty_P5;
+    wire       empty_P6;
+    wire       empty_P7;
 
-    //umbrales
-
-    wire   [2:0]           bajo;                   //umbral bajo
-    wire   [2:0]           alto;                   //umbral alto
-
-    wire [3:0]        estado_actual;         //
-    wire [3:0]        sig_estado;
-
-    wire [7:0]             empty_fifos;
-
-    wire              active_out;
-    wire              next_active;
-    wire              idle_out;
-    wire              next_idle;
-
-    wire   [7:0]           bajo_out;                  
-    wire   [7:0]           alto_out;
-
-    wire   [7:0]           next_bajo;                  
-    wire   [7:0]           next_alto;
+//*********************** SALIDAS ******************************//
+    wire                   valid_contador; //salida  valid_contador contador
+    wire                   contador_out;
+    wire                   valid_contador_s;
+    wire                   contador_out_s;
 
 maquina_de_estados maq(/*AUTOINST*/
 

@@ -15,15 +15,18 @@ module banco_contador;
     wire       IDLE;                      //activado para leer
 
     wire                           valid_contador; //salida  valid_contador contador
-    wire       [4:0]               contador_out;  //contador salida del index de interes
+    wire        [4:0]               contador_out;  //contador salida del index de interes
 
     wire                           valid_contador_s; //salida  valid_contador contador
-    wire       [4:0]               contador_out_s;  //contador salida del index de interes
+    wire        [4:0]               contador_out_s;  //contador salida del index de interes
+    wire        empty_P4;
+    wire        empty_P5;
+    wire        empty_P6;
+    wire        empty_P7;
 
 
 
-contador cont
-(
+contador cont(
     /*AUTOINST*/
     .clk                (clk),           
     .reset              (reset),           
@@ -32,8 +35,12 @@ contador cont
     .pop_F0          (pop_F0),
     .pop_F1          (pop_F1),  
     .pop_F2          (pop_F2),     
-    .pop_F3             (pop_F3),      
-    .IDLE               (IDLE),                      
+    .pop_F3          (pop_F3),     
+    .empty_P4        (empty_P4),
+    .empty_P5        (empty_P5),
+    .empty_P6        (empty_P6), 
+    .empty_P7        (empty_P7),
+    .IDLE            (IDLE),                      
 
     .valid_contador     (valid_contador), 
     .contador_out       (contador_out[4:0] )
@@ -46,10 +53,14 @@ probador_contador prob(
     .reset              (reset),           
     .idx                (idx[1:0]),            
     .req                (req),          
-    .pop_F0          (pop_F0),
-    .pop_F1          (pop_F1),  
-    .pop_F2          (pop_F2),     
-    .pop_F3             (pop_F3),      
+    .pop_F0             (pop_F0),
+    .pop_F1             (pop_F1),  
+    .pop_F2             (pop_F2),     
+    .pop_F3             (pop_F3),  
+    .empty_P4           (empty_P4),
+    .empty_P5           (empty_P5),
+    .empty_P6           (empty_P6), 
+    .empty_P7           (empty_P7),    
     .IDLE               (IDLE),                      
 
     .valid_contador                   (valid_contador), 
@@ -67,7 +78,11 @@ contador_s cont_sintetizado (
     .req                    (req),          
     .pop_F0              (pop_F0),
     .pop_F1              (pop_F1),  
-    .pop_F2              (pop_F2),     
+    .pop_F2              (pop_F2),    
+    .empty_P4           (empty_P4),
+    .empty_P5           (empty_P5),
+    .empty_P6           (empty_P6), 
+    .empty_P7           (empty_P7), 
     .pop_F3                 (pop_F3),      
     .IDLE                   (IDLE),                      
 
