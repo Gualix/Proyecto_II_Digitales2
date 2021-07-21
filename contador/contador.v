@@ -36,9 +36,7 @@ module contador#(
 
 //*********************** SALIDAS ******************************//
     output reg                          valid_contador, //salida  valid_contador contador
-    output reg  [4:0]                   contador_out,
-    output reg                          valid_contador_s,
-    output reg  [4:0]                   contador_out_s
+    output reg  [4:0]                   contador_out
     
     
     );  //contador salida del index de interes

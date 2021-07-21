@@ -1,0 +1,78 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jul 21 04:17:47 2021
+[*]
+[dumpfile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/contador/contador.vcd"
+[dumpfile_mtime] "Wed Jul 21 04:10:40 2021"
+[dumpfile_size] 55530
+[savefile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/contador/contador.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-2.823677 18 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] banco_contador.
+[treeopen] banco_contador.cont_sintetizado.
+[sst_width] 192
+[signals_width] 201
+[sst_expanded] 1
+[sst_vpaned_height] 157
+@200
+-ENTRADAS
+@28
+banco_contador.clk
+banco_contador.reset
+@29
+[color] 1
+banco_contador.req
+[color] 1
+banco_contador.IDLE
+@28
+banco_contador.empty_P4
+banco_contador.empty_P5
+banco_contador.empty_P6
+banco_contador.empty_P7
+[color] 1
+banco_contador.idx[1:0]
+banco_contador.pop_F0
+banco_contador.pop_F1
+banco_contador.pop_F2
+banco_contador.pop_F3
+@200
+-CONTADORES CONDUCTUAL
+@22
+[color] 3
+banco_contador.cont.contador_fifo0[9:0]
+banco_contador.cont.contador_fifo1[9:0]
+[color] 1
+banco_contador.cont.contador_fifo2[9:0]
+[color] 2
+banco_contador.cont.contador_fifo3[9:0]
+@200
+-SALIDAS
+@28
+[color] 5
+banco_contador.valid_contador
+@22
+[color] 5
+banco_contador.contador_out[4:0]
+@200
+-SALIDAS SINTETIZADAS
+@28
+[color] 7
+banco_contador.valid_contador_s
+@22
+[color] 7
+banco_contador.contador_out_s[4:0]
+@200
+-CORRECCIONES SINTETIZADO
+@22
+[color] 3
+banco_contador.cont_sintetizado.contador_fifo0[9:0]
+[color] 4
+banco_contador.cont_sintetizado.contador_fifo1[9:0]
+[color] 1
+banco_contador.cont_sintetizado.contador_fifo2[9:0]
+[color] 2
+banco_contador.cont_sintetizado.contador_fifo3[9:0]
+[pattern_trace] 1
+[pattern_trace] 0

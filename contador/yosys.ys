@@ -3,9 +3,9 @@ read_verilog contador.v
 
 hierarchy -check -top contador
 
-proc; opt; fsm; opt; memory; opt
+proc;  fsm;  memory
 
-techmap; opt
+techmap
 
 dfflibmap -liberty cmos_cells.lib
 

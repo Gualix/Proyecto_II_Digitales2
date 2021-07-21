@@ -1,0 +1,199 @@
+#! /usr/bin/vvp
+:ivl_version "10.3 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fffe31b3130 .scope module, "contador" "contador" 2 13;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "clk"
+    .port_info 1 /INPUT 1 "reset"
+    .port_info 2 /INPUT 3 "idx"
+    .port_info 3 /INPUT 1 "req"
+    .port_info 4 /INPUT 10 "data_in_0"
+    .port_info 5 /INPUT 10 "data_in_1"
+    .port_info 6 /INPUT 10 "data_in_2"
+    .port_info 7 /INPUT 10 "data_in_3"
+    .port_info 8 /INPUT 1 "IDLE"
+    .port_info 9 /OUTPUT 1 "valid_contador"
+    .port_info 10 /OUTPUT 5 "contador_out"
+P_0x7fffe31b32b0 .param/l "address_width" 0 2 15, +C4<00000000000000000000000000000011>;
+P_0x7fffe31b32f0 .param/l "data_width" 0 2 14, +C4<00000000000000000000000000001010>;
+P_0x7fffe31b3330 .param/l "tam" 0 2 16, +C4<00000000000000000000000000000101>;
+o0x7f26abeb0018 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fffe31da690_0 .net "IDLE", 0 0, o0x7f26abeb0018;  0 drivers
+o0x7f26abeb0048 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fffe3204c50_0 .net "clk", 0 0, o0x7f26abeb0048;  0 drivers
+v0x7fffe3204d10_0 .var "contador_fifo0", 4 0;
+v0x7fffe3204e00_0 .var "contador_fifo1", 4 0;
+v0x7fffe3204ee0_0 .var "contador_fifo2", 4 0;
+v0x7fffe3205010_0 .var "contador_fifo3", 4 0;
+v0x7fffe32050f0_0 .var "contador_out", 4 0;
+v0x7fffe32051d0_0 .var "data_ant_0", 4 0;
+v0x7fffe32052b0_0 .var "data_ant_1", 4 0;
+v0x7fffe3205390_0 .var "data_ant_2", 4 0;
+v0x7fffe3205470_0 .var "data_ant_3", 4 0;
+o0x7f26abeb0228 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v0x7fffe3205550_0 .net "data_in_0", 9 0, o0x7f26abeb0228;  0 drivers
+o0x7f26abeb0258 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v0x7fffe3205630_0 .net "data_in_1", 9 0, o0x7f26abeb0258;  0 drivers
+o0x7f26abeb0288 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v0x7fffe3205710_0 .net "data_in_2", 9 0, o0x7f26abeb0288;  0 drivers
+o0x7f26abeb02b8 .functor BUFZ 10, C4<zzzzzzzzzz>; HiZ drive
+v0x7fffe32057f0_0 .net "data_in_3", 9 0, o0x7f26abeb02b8;  0 drivers
+o0x7f26abeb02e8 .functor BUFZ 3, C4<zzz>; HiZ drive
+v0x7fffe32058d0_0 .net "idx", 2 0, o0x7f26abeb02e8;  0 drivers
+o0x7f26abeb0318 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fffe32059b0_0 .net "req", 0 0, o0x7f26abeb0318;  0 drivers
+o0x7f26abeb0348 .functor BUFZ 1, C4<z>; HiZ drive
+v0x7fffe3205b80_0 .net "reset", 0 0, o0x7f26abeb0348;  0 drivers
+v0x7fffe3205c40_0 .var "valid_contador", 0 0;
+E_0x7fffe31e8800 .event posedge, v0x7fffe3204c50_0;
+    .scope S_0x7fffe31b3130;
+T_0 ;
+    %wait E_0x7fffe31e8800;
+    %load/vec4 v0x7fffe3205b80_0;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %jmp/0xz  T_0.0, 4;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe32050f0_0, 0;
+    %pushi/vec4 0, 0, 1;
+    %assign/vec4 v0x7fffe3205c40_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe32051d0_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe3204d10_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe32052b0_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe3204e00_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe3205390_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe3204ee0_0, 0;
+    %pushi/vec4 3, 0, 5;
+    %assign/vec4 v0x7fffe3205470_0, 0;
+    %pushi/vec4 0, 0, 5;
+    %assign/vec4 v0x7fffe3205010_0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/vec4 v0x7fffe3205b80_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.2, 4;
+    %load/vec4 v0x7fffe3205550_0;
+    %load/vec4 v0x7fffe32051d0_0;
+    %pad/u 10;
+    %cmp/ne;
+    %jmp/0xz  T_0.4, 4;
+    %load/vec4 v0x7fffe3205550_0;
+    %pad/u 5;
+    %assign/vec4 v0x7fffe32051d0_0, 0;
+    %load/vec4 v0x7fffe3204d10_0;
+    %addi 1, 0, 5;
+    %assign/vec4 v0x7fffe3204d10_0, 0;
+T_0.4 ;
+    %load/vec4 v0x7fffe3205630_0;
+    %load/vec4 v0x7fffe32052b0_0;
+    %pad/u 10;
+    %cmp/ne;
+    %jmp/0xz  T_0.6, 4;
+    %load/vec4 v0x7fffe3205630_0;
+    %pad/u 5;
+    %assign/vec4 v0x7fffe32052b0_0, 0;
+    %load/vec4 v0x7fffe3204e00_0;
+    %addi 1, 0, 5;
+    %assign/vec4 v0x7fffe3204e00_0, 0;
+T_0.6 ;
+    %load/vec4 v0x7fffe3205710_0;
+    %load/vec4 v0x7fffe3205390_0;
+    %pad/u 10;
+    %cmp/ne;
+    %jmp/0xz  T_0.8, 4;
+    %load/vec4 v0x7fffe3205710_0;
+    %pad/u 5;
+    %assign/vec4 v0x7fffe3205390_0, 0;
+    %load/vec4 v0x7fffe3204ee0_0;
+    %addi 1, 0, 5;
+    %assign/vec4 v0x7fffe3204ee0_0, 0;
+T_0.8 ;
+    %load/vec4 v0x7fffe32057f0_0;
+    %load/vec4 v0x7fffe3205470_0;
+    %pad/u 10;
+    %cmp/ne;
+    %jmp/0xz  T_0.10, 4;
+    %load/vec4 v0x7fffe32057f0_0;
+    %pad/u 5;
+    %assign/vec4 v0x7fffe3205470_0, 0;
+    %load/vec4 v0x7fffe3205010_0;
+    %addi 1, 0, 5;
+    %assign/vec4 v0x7fffe3205010_0, 0;
+T_0.10 ;
+    %load/vec4 v0x7fffe32059b0_0;
+    %pad/u 32;
+    %pushi/vec4 1, 0, 32;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %load/vec4 v0x7fffe31da690_0;
+    %pad/u 32;
+    %pushi/vec4 1, 0, 32;
+    %cmp/e;
+    %flag_get/vec4 4;
+    %and;
+    %flag_set/vec4 8;
+    %jmp/0xz  T_0.12, 8;
+    %load/vec4 v0x7fffe32058d0_0;
+    %pad/u 32;
+    %cmpi/e 0, 0, 32;
+    %jmp/0xz  T_0.14, 4;
+    %load/vec4 v0x7fffe3204d10_0;
+    %assign/vec4 v0x7fffe32050f0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x7fffe3205c40_0, 0;
+T_0.14 ;
+    %jmp T_0.13;
+T_0.12 ;
+    %load/vec4 v0x7fffe32058d0_0;
+    %pad/u 32;
+    %cmpi/e 1, 0, 32;
+    %jmp/0xz  T_0.16, 4;
+    %load/vec4 v0x7fffe3204e00_0;
+    %assign/vec4 v0x7fffe32050f0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x7fffe3205c40_0, 0;
+    %jmp T_0.17;
+T_0.16 ;
+    %load/vec4 v0x7fffe32058d0_0;
+    %pad/u 32;
+    %cmpi/e 2, 0, 32;
+    %jmp/0xz  T_0.18, 4;
+    %load/vec4 v0x7fffe3204ee0_0;
+    %assign/vec4 v0x7fffe32050f0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x7fffe3205c40_0, 0;
+    %jmp T_0.19;
+T_0.18 ;
+    %load/vec4 v0x7fffe32058d0_0;
+    %pad/u 32;
+    %cmpi/e 3, 0, 32;
+    %jmp/0xz  T_0.20, 4;
+    %load/vec4 v0x7fffe3205010_0;
+    %assign/vec4 v0x7fffe32050f0_0, 0;
+    %pushi/vec4 1, 0, 1;
+    %assign/vec4 v0x7fffe3205c40_0, 0;
+T_0.20 ;
+T_0.19 ;
+T_0.17 ;
+T_0.13 ;
+T_0.2 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "contador.v";
