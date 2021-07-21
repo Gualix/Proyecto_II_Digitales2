@@ -25,6 +25,8 @@ module memoria#(parameter data_width = 10,		// Cantidad de bits de cada bloque
 			if ( wrmem_enable ) begin
 				mem[wr_ptr] <= memo_data_in;
 				wr_ptr<=wr_ptr+1;
+					
+						
 			end
 		end
 	end

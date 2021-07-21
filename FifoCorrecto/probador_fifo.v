@@ -8,7 +8,21 @@ module probador_fifo#(parameter data_width = 10,
 
 						/*input [2:0] wr_ptr, rd_ptr,*/
 						input [data_width-1:0] FIFO_data_out,
-						input [data_width-1:0] FIFO_data_out_synth);
+						input [data_width-1:0] FIFO_data_out_synth,
+						
+						input full_fifo,
+   				        input empty_fifo,
+            			input almost_empty_fifo,
+            			input almost_full_fifo,
+            			
+
+						input full_fifo_synth,
+   				        input empty_fifo_synth,
+            			input almost_empty_fifo_synth,
+            			input almost_full_fifo_synth
+            			
+						
+						);
 
 
 	initial begin

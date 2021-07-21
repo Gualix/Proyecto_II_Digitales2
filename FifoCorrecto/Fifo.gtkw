@@ -1,35 +1,59 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jun 29 21:56:55 2021
+[*] Wed Jul 21 04:58:11 2021
 [*]
-[dumpfile] "/home/roger/Desktop/Proyecto_II_Digitales2/FifoMemoria/Fifo.vcd"
-[dumpfile_mtime] "Tue Jun 29 21:50:44 2021"
-[dumpfile_size] 23962
-[savefile] "/home/roger/Desktop/Proyecto_II_Digitales2/FifoMemoria/Fifo.gtkw"
+[dumpfile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/FifoCorrecto/FifoPushPop.vcd"
+[dumpfile_mtime] "Wed Jul 21 04:51:37 2021"
+[dumpfile_size] 160675
+[savefile] "/mnt/c/Users/50688/Documents/GitHub/Proyecto_II_Digitales2/FifoCorrecto/FIfo.gtkw"
 [timestart] 0
-[size] 951 392
-[pos] 64 65
-*-4.609091 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[sst_width] 233
-[signals_width] 286
+[size] 1000 600
+[pos] -176 -71
+*-4.838627 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Banco_Fifo.
+[treeopen] Banco_Fifo.u_fifosynth.
+[sst_width] 192
+[signals_width] 216
 [sst_expanded] 1
-[sst_vpaned_height] 72
+[sst_vpaned_height] 157
 @200
--EntradasAlFifo
-@22
-Banco_Fifo.FIFO_data_in[9:0]
-@200
--Salidas de los fifos
-@22
-Banco_Fifo.FIFO_data_out[9:0]
-Banco_Fifo.FIFO_data_out_synth[9:0]
-@200
--Valores de entrada para escribir
+-Almost_Full
 @28
-Banco_Fifo.wr_ptr[2:0]
-@201
--Valores de entrada para leer 
+Banco_Fifo.u_probador_fifos.almost_full_fifo
+Banco_Fifo.u_probador_fifos.almost_full_fifo_synth
+@200
+-Entradas y Salidas de los FIFOS
+@22
+Banco_Fifo.u_probador_fifos.FIFO_data_in[9:0]
+[color] 3
+Banco_Fifo.u_probador_fifos.FIFO_data_out[9:0]
+[color] 3
+Banco_Fifo.u_probador_fifos.FIFO_data_out_synth[9:0]
+@200
+-Estimulos
 @28
-Banco_Fifo.rd_ptr[2:0]
+[color] 7
+Banco_Fifo.u_probador_fifos.rd_enable
+[color] 7
+Banco_Fifo.u_probador_fifos.rd_enable_synth
+[color] 1
+Banco_Fifo.u_probador_fifos.wr_enable
+[color] 1
+Banco_Fifo.u_probador_fifos.wr_enable_synth
+@29
+[color] 3
+Banco_Fifo.u_probador_fifos.reset
+@200
+-Memoria conductual
+@22
+Banco_Fifo.u_fifo.mem.memo_data_in[9:0]
+[color] 5
+Banco_Fifo.u_fifo.mem.memo_data_out[9:0]
+@200
+-Memoria FIFO synt
+@22
+Banco_Fifo.u_fifosynth.mem_synth.memo_data_in[9:0]
+[color] 5
+Banco_Fifo.u_fifosynth.mem_synth.memo_data_out_synth[9:0]
 [pattern_trace] 1
 [pattern_trace] 0

@@ -1,6 +1,6 @@
 read_verilog Fifo.v
 
-proc; opt; memory; opt; fsm; opt;
+proc; memory;  fsm; opt;
 
 techmap;
 

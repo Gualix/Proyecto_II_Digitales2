@@ -2,7 +2,7 @@
 `include "probador_fifo.v"
 `include "cmos_cells.v"
 
-`include "memoria.v"
+//`include "memoria.v"
 `include "Fifo_synth.v"
 
 module Banco_Fifo();
@@ -13,6 +13,19 @@ module Banco_Fifo();
 	wire [data_width-1:0] FIFO_data_out, FIFO_data_out_synth;
 	wire [2:0] alto, bajo;
 	wire pop, push;
+	wire wr_enable, rd_enable;
+	
+	wire full_fifo;
+    wire empty_fifo;
+    wire almost_empty_fifo;
+    wire almost_full_fifo;
+    
+
+	wire full_fifo_synth;
+    wire empty_fifo_synth;
+    wire almost_empty_fifo_synth;
+    wire almost_full_fifo_synth;
+   
 
 	probador_fifo#(
 		.data_width   ( 10 ),
@@ -30,6 +43,20 @@ module Banco_Fifo();
 			  .wr_enable		(wr_enable),
 			  .rd_enable		(rd_enable),
 			  .wr_enable_synth	(wr_enable_synth),
+			  
+			  .full_fifo		(full_fifo),
+			  .full_fifo_synth	(full_fifo_synth),
+			  
+			  .empty_fifo		(empty_fifo),
+			  .empty_fifo_synth	(empty_fifo_synth),
+			  
+			  .almost_empty_fifo		(almost_empty_fifo),
+			  .almost_empty_fifo_synth	(almost_empty_fifo_synth),
+			  
+			  .almost_full_fifo	(almost_full_fifo),
+			  .almost_full_fifo_synth(almost_full_fifo_synth),
+			  
+
 			  .rd_enable_synth	(rd_enable_synth),
 			  .FIFO_data_out	(FIFO_data_out[data_width-1:0]),
 			  .FIFO_data_out_synth	(FIFO_data_out_synth[data_width-1:0]));
@@ -42,11 +69,11 @@ module Banco_Fifo();
 		// Outputs
 		.wr_enable		(wr_enable),
 		.rd_enable		(rd_enable),
-		.full_fifo		(full_fifo),
-		.empty_fifo		(empty_fifo),
+		.full_fifo			(full_fifo),
+		.empty_fifo			(empty_fifo),
 		.almost_empty_fifo	(almost_empty_fifo),
 		.almost_full_fifo	(almost_full_fifo),
-		.error			(error),
+		
 		.FIFO_data_out		(FIFO_data_out[data_width-1:0]),
 		// Inputs
 		.clk			(clk),
@@ -61,22 +88,23 @@ module Banco_Fifo();
 	Fifo_synth u_fifosynth(/*AUTOINST*/
 			       // Outputs
 			       .FIFO_data_out_synth(FIFO_data_out_synth[9:0]),
-			       .almost_empty_fifo(almost_empty_fifo),
+			       .almost_empty_fifo_synth(almost_empty_fifo_synth),
 			       .almost_full_fifo_synth(almost_full_fifo_synth),
-			       .empty_fifo	(empty_fifo),
-			       .error		(error),
+			       .empty_fifo_synth	(empty_fifo_synth),
+			       
 			       .full_fifo_synth	(full_fifo_synth),
 			       .rd_enable_synth	(rd_enable_synth),
 			       .wr_enable_synth	(wr_enable_synth),
 			       // Inputs
 			       .FIFO_data_in	(FIFO_data_in[9:0]),
-			       .alto		(alto[2:0]),
-			       .bajo		(bajo[2:0]),
-			       .clk		(clk),
-			       .pop		(pop),
-			       .push		(push),
-			       .reset		(reset));
- 
+			       .alto			(alto[2:0]),
+			       .bajo			(bajo[2:0]),
+			       .clk				(clk),
+			       .pop				(pop),
+			       .push			(push),
+			       .reset			(reset));
+
+
 
 
 
