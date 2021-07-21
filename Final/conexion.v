@@ -2,7 +2,7 @@
 `include "demux4x1.v"
 `include "Fifo.v"
 `include "arbitro.v"
-`include "contador.v"
+//`include "contador.v"
 
 module conexion#(parameter data_width = 10,
 			    parameter address_width = 8)
@@ -71,7 +71,7 @@ wire almost_full_P0, almost_full_P1, almost_full_P2, almost_full_P3;
 
 wire [data_width-1:0] FIFO_data_out0, FIFO_data_out1, FIFO_data_out2, FIFO_data_out3;
 wire [data_width-1:0] FIFO_data_in4, FIFO_data_in5, FIFO_data_in6, FIFO_data_in7;
-
+/*
 contador cont(
 
     //input
@@ -79,19 +79,23 @@ contador cont(
     .reset(reset),
     .idx (idx [1:0]),
     .req (req),
-    .pop_F0 (pop0),
-    .pop_F1 (pop1),
-    .pop_F2 (pop2),
-    .pop_F3 (pop3),
+    .pop_F0 (pop4),
+    .pop_F1 (pop5),
+    .pop_F2 (pop6),
+    .pop_F3 (pop7),
 
     .IDLE (IDLE),
+    .empty_P4(empty_P4),
+    .empty_P5(empty_P5),
+    .empty_P6(empty_P6),
+    .empty_P7(empty_P7),
 
     //outputs
     .valid_contador (valid_contador),
     .contador_out   (contador_out [4:0])
 
 
-);
+);*/
 
 /*FIFOS de entrada*/
 Fifo fifo0(
@@ -286,7 +290,6 @@ arbitro Arbitro2(
 
 
 /*Llenado de los empty fifos
-
 Se llena los empty_fifos para la maquina de Estados*/
 
     always @(*)begin
