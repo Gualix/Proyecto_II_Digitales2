@@ -1,15 +1,20 @@
-all: 
+
+#all:  yosys 
+all:  emacs compile gtk
+#all:  emacs compile yosys gtk
+
+
+emacs:
+	emacs -batch banco_moduloFinal.v -f verilog-auto -f save-buffer
+
+compile:
 	
+	iverilog -o test_moduloFinal.vvp banco_moduloFinal.v 
+	vvp test_moduloFinal.vvp
 
+yosys:
+#	rm moduloFinal_synth.v	
+	yosys -s moduloFinal.ys
 
-
-
-
-
-	emacs -batch banco_modulocompleto.v -f verilog-auto -f save-buffer
-
-
-
-	iverilog -o test_modulocompleto.vvp banco_modulocompleto.v 
-	vvp test_modulocompleto.vvp
-	gtkwave ModuloCompleto.gtkw
+gtk:
+	gtkwave moduloFinal.gtkw

@@ -1,4 +1,4 @@
-read_verilog ModuloCompleto.v
+read_verilog moduloFinal.v
 
 proc; opt; memory; opt; fsm; opt;
 
@@ -8,6 +8,8 @@ dfflibmap -liberty cmos_cells.lib
 
 abc -liberty cmos_cells.lib
 
+simplemap
+
+write_verilog moduloFinal_synth.v
 clean
 
-write_verilog ModuloCompleto_synth.v

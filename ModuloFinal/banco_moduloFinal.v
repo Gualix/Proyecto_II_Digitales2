@@ -1,6 +1,6 @@
-`include "ModuloCompleto.v"
+`include "moduloFinal.v"
 `include "probador.v"
-`include "ModuloCompleto_synth.v"
+//`include "moduloFinal_synth.v"
 `include "cmos_cells.v"
 
 module banco_modulocompleto();
@@ -33,8 +33,7 @@ module banco_modulocompleto();
 
 	wire [4:0]contador_sint_out;
 
-
-    ModuloCompleto modulo(/*AUTOINST*/
+    ModuloCompleto modulo(
 			  // Outputs
 			  .IDLE			(IDLE),
 			  .FIFO_data_out4	(FIFO_data_out4[9:0]),
@@ -66,7 +65,7 @@ module banco_modulocompleto();
 
 
 
-    probador probador_modulo(/*AUTOINST*/
+    probadorTotal probador_modulo(
 			     // Outputs
 			     .clk		(clk),
 			     .reset		(reset),
@@ -100,7 +99,7 @@ module banco_modulocompleto();
 			     .valid_contador	(valid_contador),
 			     .contador_out	(contador_out[4:0]));
 
-    ModuloCompleto_synth Sintetizado(/*AUTOINST*/
+    /*ModuloCompleto_synth Sintetizado(
 				     // Outputs
 				     .FIFO_data_out_synth4(FIFO_data_out_synth4[9:0]),
 				     .FIFO_data_out_synth5(FIFO_data_out_synth5[9:0]),
@@ -130,7 +129,7 @@ module banco_modulocompleto();
 				     .req		(req),
 				     .reset		(reset));
 
-
+*/
 
 
 endmodule

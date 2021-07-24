@@ -4,7 +4,6 @@ yosys:
 	rm Fifo_synth.v	
 	yosys -s Fifo.ys
 
-	
 emacs:
 	emacs -batch Banco_Fifo.v -f verilog-auto -f save-buffer
 

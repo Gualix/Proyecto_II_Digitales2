@@ -32,16 +32,11 @@ module arbitro(
     output reg push_F2,
     output reg push_F3);
 
-
-
-
 always @(posedge clk) begin
     if (reset == 0) begin
 
 
         // Solamente hace POP si ninguna entrada almost full de esta en 1
-        /*if (almost_full_P0 != 1 && almost_full_P1 != 1
-            && almost_full_P2 != 1 && almost_full_P3 != 1)*/
         if(almost_full_P0==0  || almost_full_P1==0  || almost_full_P2==0  || almost_full_P3==0) begin
             //Revisa las entradas para vaciarlos
             if (empty_P0 == 0) begin
@@ -103,8 +98,6 @@ end
         
     always @(*) begin
             
-       
-
          if (almost_full_P0==1)begin
             push_F0 = 0;
             
@@ -133,21 +126,6 @@ end
     
        end
 
-        //Cuando recibe datos en los FIFOs de la salida, los saca
-        /*if (almost_full_P0 == 1) begin
-            push_F0 <= 0;
-        end
-        if (almost_full_P1 == 0) begin
-            push_F1 <= 0;
-        end
-        if (almost_full_P2 == 0) begin
-            push_F2 <= 0;
-        end
-        if (almost_full_P3 == 0) begin
-            push_F3 <= 0;
-        end*/
-
-    
 
 
 endmodule

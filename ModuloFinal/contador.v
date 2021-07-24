@@ -8,7 +8,7 @@
 //se pueden leer en estado de IDLE
 //el probador da un req y un idx req 1 es leer y el index es para ver cual contador leer
 
-//devuelve el dato y un  valid_contador el contador
+//devuelve el dato y un valid_contador el contador
 
 module contador#(
                     parameter data_width = 10, 
@@ -21,7 +21,7 @@ module contador#(
 
     input       clk,                        //reloj
     input       reset,                      //reset
-    input       [1:0] idx,                        //index
+    input       [1:0] idx,                  //index
     input       req,                        //request
     input       pop_F0,  
     input       pop_F1,  
@@ -36,9 +36,7 @@ module contador#(
 
 //*********************** SALIDAS ******************************//
     output reg                          valid_contador, //salida  valid_contador contador
-    output reg  [4:0]                   contador_out,
-    output reg                          valid_contador_s,
-    output reg  [4:0]                   contador_out_s
+    output reg  [4:0]                   contador_out
     
     
     );  //contador salida del index de interes
@@ -165,16 +163,8 @@ begin
                         end
 
                     end
-    
-            
-                
-
-            
         end
 end
 
+endmodule  
 
-
-  
-
-endmodule 

@@ -1,11 +1,12 @@
-module probador (
+module probadorTotal (
     
     output reg clk,
     output reg reset,
 
     //Para la maquina de estados
     output reg init,
-    output reg [2:0] alto,bajo,
+    output reg [2:0] alto, bajo,
+
     //Para el probador de abajo
     output reg [9:0] FIFO_data_in0,
     output reg [9:0] FIFO_data_in1,
@@ -15,7 +16,6 @@ module probador (
     output reg push1,
     output reg push2,
     output reg push3, 
-
 
     //Para el probador de arriba
     output reg pop4,
@@ -27,9 +27,6 @@ module probador (
     output reg [1:0] idx,                        //index
     output reg req,                        //request
     output reg IDLE,
-
-
-
 
     //Outputs de los fifos
     input  [9:0] FIFO_data_out_synth4,
@@ -51,7 +48,7 @@ module probador (
 );
 
     initial begin
-        $dumpfile("completo.vcd");
+        $dumpfile("ResultadoFinal_v1.vcd");
         $dumpvars;
 
         /*Saque el bloque de RESET, manteniendo el estado de INIT (señal init)*/
