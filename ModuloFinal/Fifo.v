@@ -1,4 +1,5 @@
 /* Este fifo implementa el pop y el push como control de sus entradas y salidas
+
 */
 `include "memoria.v"
 
@@ -11,11 +12,9 @@ module Fifo #(  parameter data_width = 10,
             input   pop, push,
 
             output reg full_fifo,
-            output  reg empty_fifo,
+            output reg empty_fifo,
             output reg almost_empty_fifo,
             output reg almost_full_fifo,
-            output error,
-
             
             
             input [2:0] alto,bajo, 
@@ -24,35 +23,45 @@ module Fifo #(  parameter data_width = 10,
 
             parameter size_fifo = address_width-1; 
 
+    reg [2:0] cnt;
     
-reg [2:0] cnt;
 
 
-memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_enable), .memo_data_in(FIFO_data_in),.memo_data_out(FIFO_data_out) );
+
+memoria mem(
+            .clk(clk), 
+            .reset(reset), 
+            .wrmem_enable(wr_enable),
+            .rdmem_enable(rd_enable), 
+            .memo_data_in(FIFO_data_in),
+            .memo_data_out(FIFO_data_out));
 
 
-    always @(*) begin
-            
+
+
+
+    always @(posedge clk) begin
         if (reset == 0) begin
             
             if (push) begin
-                wr_enable=1;            
+                wr_enable<=1;            
             end
             else if (~push) begin
-                wr_enable=0;
+                wr_enable<=0;
             end
 
             if (pop  ) begin
-                rd_enable=1;            
+                rd_enable<=1;            
             end
             else if (~pop) begin
-                rd_enable=0;
+                rd_enable<=0;
             end
         end
         else begin
-            rd_enable=0;
-            wr_enable=0;
-            
+            rd_enable<=0;
+            wr_enable<=0;
+            full_fifo<=0;
+            empty_fifo<=0;
         end
     end
 
@@ -60,7 +69,7 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
 
     always @(posedge clk) begin
         if (~reset)begin
-            if(wr_enable==1 && FIFO_data_in!=0)begin
+            if(wr_enable==1)begin
                 if (rd_enable)begin
                     cnt<=cnt;
                 end   
@@ -71,7 +80,7 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
             end 
             else if(wr_enable==0) begin
                 if(rd_enable) begin
-                    if (cnt==0)begin  
+                    if (cnt<=0)begin  
                         cnt <= cnt; 
                     end 
                     else begin
@@ -97,40 +106,36 @@ memoria mem(.clk(clk), .reset(reset), .wrmem_enable(wr_enable),.rdmem_enable(rd_
 
   
 
-  always @(*) begin
+  always @(posedge clk) begin
      //Llenado del full fifo 
-    empty_fifo=0;
-    full_fifo=0;
-    almost_full_fifo=0;
-    
     if (cnt== 3'b111) begin
         
-        full_fifo=1;
+        full_fifo<=1;
     end
     else begin
-        full_fifo=0;
+        full_fifo<=0;
     end 
 
 //Llenado del empty fifo
     if (cnt==0)begin
-        empty_fifo=1;
+        empty_fifo<=1;
     end
     else begin
-        empty_fifo=0;
+        empty_fifo<=0;
     end
 // Llenado del almost_empty
     if (cnt==bajo)begin
-        almost_empty_fifo=1;
+        almost_empty_fifo<=1;
     end
     else begin
-        almost_empty_fifo=0;
+        almost_empty_fifo<=0;
     end
 //Llenado del almost_full
     if (cnt == alto)begin
-        almost_full_fifo=1;
+        almost_full_fifo<=1;
     end
     else begin
-        almost_full_fifo=0;
+        almost_full_fifo<=0;
     end
 
   end
